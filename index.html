@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fuel Finder UK – Find the Cheapest Fuel Near You</title>
+  <meta name="description" content="Find the cheapest petrol and diesel near you using official UK Government CMA fuel price data, updated every 30 minutes. Free on Android." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="store_icon.svg" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:   #1a9e5e;
+      --green-d: #157a49;
+      --green-l: #e8f7f0;
+      --text:    #111827;
+      --muted:   #6b7280;
+      --border:  #e5e7eb;
+      --bg:      #f9fafb;
+      --white:   #ffffff;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.05);
+      --shadow:    0 4px 20px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px; padding: 0 24px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 800; font-size: 1.1rem; color: var(--text);
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(230,81,0,0.35);
+    }
+    .logo-icon img { width: 100%; height: 100%; display: block; }
+    .nav-cta {
+      background: var(--green); color: #fff;
+      padding: 9px 22px; border-radius: 8px;
+      font-weight: 700; font-size: 0.875rem;
+      text-decoration: none; transition: all 0.2s;
+      box-shadow: 0 2px 8px rgba(26,158,94,0.25);
+    }
+    .nav-cta:hover { background: var(--green-d); transform: translateY(-1px); }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(160deg, #f0fdf8 0%, #ecfdf5 45%, #f9fafb 100%);
+      padding: 88px 24px 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(26,158,94,0.08), transparent);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--green-l); border: 1px solid #a7f3d0;
+      color: #065f46; border-radius: 999px;
+      padding: 6px 16px; font-size: 0.8rem; font-weight: 700;
+      margin-bottom: 28px; letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5.5vw, 3.75rem);
+      font-weight: 900; line-height: 1.1;
+      max-width: 740px; margin: 0 auto 20px;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 .highlight { color: var(--green); }
+    .hero-sub-text {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--muted); max-width: 560px;
+      margin: 0 auto 44px; line-height: 1.65;
+    }
+
+    /* ─── Google Play button ─── */
+    .gplay-wrap { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .gplay-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: #0f172a; color: #fff;
+      padding: 13px 26px; border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .gplay-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(0,0,0,0.25); }
+    .gplay-btn svg { width: 30px; height: 30px; flex-shrink: 0; }
+    .gplay-text { text-align: left; }
+    .gplay-text small { display: block; font-size: 0.7rem; opacity: 0.7; letter-spacing: 0.05em; text-transform: uppercase; }
+    .gplay-text strong { display: block; font-size: 1.15rem; font-weight: 800; line-height: 1.2; }
+
+    .trust-row {
+      display: flex; justify-content: center; align-items: center;
+      gap: 24px; margin-top: 32px; flex-wrap: wrap;
+    }
+    .trust-pill {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.84rem; color: var(--muted); font-weight: 500;
+    }
+    .trust-pill svg { width: 16px; height: 16px; color: var(--green); flex-shrink: 0; }
+
+    /* ─── SCREENSHOTS SECTION ─── */
+    .screenshots-section {
+      padding: 80px 0 72px;
+      background: var(--white);
+    }
+    .section-header {
+      text-align: center; margin-bottom: 48px; padding: 0 24px;
+    }
+    .section-header h2 {
+      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+      font-weight: 800; margin-bottom: 12px; letter-spacing: -0.02em;
+    }
+    .section-header p { color: var(--muted); max-width: 500px; margin: 0 auto; font-size: 1rem; }
+
+    /* Scrollable strip */
+    .scroll-track-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 8px 0 24px;
+    }
+    .scroll-track-wrapper::-webkit-scrollbar { display: none; }
+    .scroll-track {
+      display: flex;
+      gap: 20px;
+      padding: 0 max(24px, calc((100vw - 1100px) / 2));
+      width: max-content;
+    }
+
+    /* Phone frame */
+    .phone-frame {
+      flex-shrink: 0;
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .phone-shell {
+      width: 200px;
+      height: 434px;
+      background: #1a1a2e;
+      border-radius: 32px;
+      padding: 10px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.2), 0 0 0 1px rgba(255,255,255,0.08) inset;
+      position: relative;
+      overflow: hidden;
+    }
+    .phone-shell::before {
+      content: '';
+      position: absolute;
+      top: 10px; left: 50%;
+      transform: translateX(-50%);
+      width: 56px; height: 5px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 99px;
+      z-index: 2;
+    }
+    .phone-screen {
+      width: 100%; height: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #0f0f1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .phone-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      border-radius: 22px;
+    }
+    /* Placeholder styling when no image */
+    .phone-screen.placeholder {
+      flex-direction: column;
+      gap: 8px;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.75rem;
+      text-align: center;
+      padding: 16px;
+    }
+    .phone-screen.placeholder .ph-emoji { font-size: 2.2rem; }
+
+    .phone-caption {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      text-align: center;
+      line-height: 1.35;
+      max-width: 180px;
+    }
+    .phone-caption span {
+      display: block;
+      font-weight: 400;
+      color: var(--muted);
+      font-size: 0.77rem;
+      margin-top: 2px;
+    }
+
+    /* ─── FEATURE HIGHLIGHT (Plan Route) ─── */
+    .highlight-strip {
+      background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 100%);
+      padding: 72px 24px;
+      color: #fff;
+    }
+    .highlight-inner {
+      max-width: 980px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+    }
+    .highlight-text h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 900; line-height: 1.15;
+      margin-bottom: 16px; letter-spacing: -0.02em;
+    }
+    .highlight-text h2 em { font-style: normal; color: #34d399; }
+    .highlight-text p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1rem; line-height: 1.7; margin-bottom: 20px;
+    }
+    .savings-box {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: rgba(52,211,153,0.12);
+      border: 1px solid rgba(52,211,153,0.3);
+      border-radius: 12px; padding: 14px 20px;
+    }
+    .savings-box .amount { font-size: 2rem; font-weight: 900; color: #34d399; line-height: 1; }
+    .savings-box .desc { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.4; }
+    .highlight-phone {
+      display: flex; justify-content: center;
+    }
+    @media (max-width: 700px) {
+      .highlight-inner { grid-template-columns: 1fr; gap: 40px; }
+      .highlight-phone { order: -1; }
+    }
+
+    /* ─── FEATURES GRID ─── */
+    .features {
+      background: var(--bg);
+      padding: 80px 24px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1120px; margin: 0 auto;
+    }
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px 22px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .feature-icon {
+      width: 48px; height: 48px;
+      background: var(--green-l); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 14px;
+    }
+    .feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 7px; }
+    .feature-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+    /* ─── DATA STRIP ─── */
+    .data-strip {
+      background: var(--green);
+      padding: 64px 24px;
+      text-align: center;
+      color: #fff;
+    }
+    .data-strip h2 {
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 800; margin-bottom: 10px; letter-spacing: -0.01em;
+    }
+    .data-strip p {
+      opacity: 0.88; max-width: 540px; margin: 0 auto 40px;
+      font-size: 1rem;
+    }
+    .stats-row {
+      display: flex; justify-content: center; gap: 56px; flex-wrap: wrap;
+    }
+    .stat-num { font-size: 2.4rem; font-weight: 900; line-height: 1; letter-spacing: -0.02em; }
+    .stat-label { font-size: 0.83rem; opacity: 0.75; margin-top: 5px; }
+
+    /* ─── BOTTOM CTA ─── */
+    .cta-section {
+      padding: 88px 24px;
+      text-align: center;
+      background: var(--white);
+    }
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 900; margin-bottom: 14px; letter-spacing: -0.02em;
+    }
+    .cta-section p {
+      color: var(--muted); max-width: 440px;
+      margin: 0 auto 40px; font-size: 1rem;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #0f172a;
+      color: rgba(255,255,255,0.5);
+      padding: 36px 24px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    .footer-inner { max-width: 720px; margin: 0 auto; }
+    .footer-logo { font-size: 1.05rem; font-weight: 800; color: #fff; margin-bottom: 10px; }
+    footer a { color: rgba(255,255,255,0.65); text-decoration: none; }
+    footer a:hover { color: #fff; }
+    .footer-links { display: flex; justify-content: center; gap: 22px; margin-top: 18px; flex-wrap: wrap; }
+    .footer-disclaimer {
+      margin-top: 20px; font-size: 0.74rem; opacity: 0.4; max-width: 640px; margin-left: auto; margin-right: auto;
+    }
+
+    @media (max-width: 600px) {
+      .phone-frame { width: 170px; }
+      .phone-shell { width: 170px; height: 368px; }
+      .stats-row { gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="logo-icon"><img src="store_icon.svg" alt="Fuel Finder UK icon" /></div>
+        Fuel Finder UK
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.fuelprices.live&pcampaignid=web_share"
+         target="_blank" rel="noopener" class="nav-cta">
+        Download Free
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="store_icon.svg" alt="Fuel Finder UK"
+         style="width:96px;height:96px;border-radius:22px;margin-bottom:24px;box-shadow:0 8px 32px rgba(230,81,0,0.25);" />
+    <div class="hero-badge">🇬🇧 Official CMA Data</div>
+    <h1>Stop Overpaying<br>for <span class="highlight">Petrol &amp; Diesel</span></h1>
+    <p class="hero-sub-text">Find the cheapest fuel near you — powered by official UK Government CMA price data, refreshed every 30 minutes. Completely free.</p>
+
+    <div class="gplay-wrap">
+      <a href="https://play.google.com/store/apps/details?id=com.fuelprices.live&pcampaignid=web_share"
+         target="_blank" rel="noopener" class="gplay-btn">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.18 1.01C2.75 1.24 2.5 1.7 2.5 2.27V21.73C2.5 22.3 2.75 22.76 3.18 22.99L3.27 23.07L13.36 12.98V12.75L3.27 0.93L3.18 1.01Z" fill="#EA4335"/>
+          <path d="M16.92 16.53L13.36 12.98V12.75L16.92 9.19L17.03 9.26L21.22 11.67C22.43 12.36 22.43 13.37 21.22 14.06L17.03 16.47L16.92 16.53Z" fill="#FBBC04"/>
+          <path d="M17.03 16.47L13.36 12.8L3.18 22.99C3.57 23.4 4.19 23.45 4.88 23.06L17.03 16.47Z" fill="#34A853"/>
+          <path d="M3.18 1.01L17.03 7.6L4.88 0.94C4.19 0.55 3.57 0.6 3.18 1.01Z" fill="#4285F4"/>
+        </svg>
+        <div class="gplay-text">
+          <small>Get it on</small>
+          <strong>Google Play</strong>
+        </div>
+      </a>
+    </div>
+
+    <div class="trust-row">
+      <span class="trust-pill">
+        <svg fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M5 8.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        100% Free
+      </span>
+      <span class="trust-pill">
+        <svg fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M5 8.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        No sign-up needed
+      </span>
+      <span class="trust-pill">
+        <svg fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M5 8.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Android
+      </span>
+    </div>
+  </section>
+
+  <!-- SCREENSHOTS -->
+  <section class="screenshots-section">
+    <div class="section-header">
+      <h2>See It in Action</h2>
+      <p>Everything you need to find the cheapest fuel — clean, fast, and no fuss.</p>
+    </div>
+
+    <div class="scroll-track-wrapper">
+      <div class="scroll-track">
+
+        <!-- Screenshot 1: Map view dark -->
+        <div class="phone-frame">
+          <div class="phone-shell">
+            <div class="phone-screen">
+              <!--
+                REPLACE THIS COMMENT with:
+                <img src="screenshots/screen1.png" alt="Map view showing fuel prices" />
+              -->
+              <div class="phone-screen placeholder">
+                <span class="ph-emoji">🗺️</span>
+                <span>Map view<br>(screen1.png)</span>
+              </div>
+            </div>
+          </div>
+          <div class="phone-caption">
+            Live Map View
+            <span>Price-coded bubbles on a map — instantly see what's cheap nearby</span>
+          </div>
+        </div>
+
+        <!-- Screenshot 2: List view -->
+        <div class="phone-frame">
+          <div class="phone-shell">
+            <div class="phone-screen">
+              <!--
+                REPLACE WITH:
+                <img src="screenshots/screen2.png" alt="List view with best choice highlighted" />
+              -->
+              <div class="phone-screen placeholder">
+                <span class="ph-emoji">⭐</span>
+                <span>List view<br>(screen2.png)</span>
+              </div>
+            </div>
+          </div>
+          <div class="phone-caption">
+            Best Choice Highlighted
+            <span>The cheapest &amp; closest station is pinpointed so you never have to guess</span>
+          </div>
+        </div>
+
+        <!-- Screenshot 3: Light theme -->
+        <div class="phone-frame">
+          <div class="phone-shell">
+            <div class="phone-screen">
+              <!--
+                REPLACE WITH:
+                <img src="screenshots/screen3.png" alt="Classic light theme map view" />
+              -->
+              <div class="phone-screen placeholder">
+                <span class="ph-emoji">☀️</span>
+                <span>Light theme<br>(screen3.png)</span>
+              </div>
+            </div>
+          </div>
+          <div class="phone-caption">
+            Light &amp; Dark Themes
+            <span>Classic light, dark, or AMOLED — choose the look that suits you</span>
+          </div>
+        </div>
+
+        <!-- Screenshot 4: Plan Route -->
+        <div class="phone-frame">
+          <div class="phone-shell">
+            <div class="phone-screen">
+              <!--
+                REPLACE WITH:
+                <img src="screenshots/screen4.png" alt="Plan route mode showing cheapest fuel on journey" />
+              -->
+              <div class="phone-screen placeholder">
+                <span class="ph-emoji">🚗</span>
+                <span>Plan Route<br>(screen4.png)</span>
+              </div>
+            </div>
+          </div>
+          <div class="phone-caption">
+            Plan Your Route
+            <span>Find the cheapest fuel along your journey — not just where you are</span>
+          </div>
+        </div>
+
+        <!-- Screenshot 5: Fuel type selection -->
+        <div class="phone-frame">
+          <div class="phone-shell">
+            <div class="phone-screen">
+              <!--
+                REPLACE WITH:
+                <img src="screenshots/screen5.png" alt="Fuel type selection screen" />
+              -->
+              <div class="phone-screen placeholder">
+                <span class="ph-emoji">⛽</span>
+                <span>Fuel types<br>(screen5.png)</span>
+              </div>
+            </div>
+          </div>
+          <div class="phone-caption">
+            All Fuel Grades
+            <span>Petrol, diesel, premium, E10, B10 — pick the exact fuel you use</span>
+          </div>
+        </div>
+
+        <!-- Screenshot 6: Brand filter -->
+        <div class="phone-frame">
+          <div class="phone-shell">
+            <div class="phone-screen">
+              <!--
+                REPLACE WITH:
+                <img src="screenshots/screen6.png" alt="Brand selection filter screen" />
+              -->
+              <div class="phone-screen placeholder">
+                <span class="ph-emoji">🏪</span>
+                <span>Brand filter<br>(screen6.png)</span>
+              </div>
+            </div>
+          </div>
+          <div class="phone-caption">
+            Filter by Brand
+            <span>Show only your favourite stations — Tesco, BP, Shell, Esso and more</span>
+          </div>
+        </div>
+
+      </div><!-- /scroll-track -->
+    </div><!-- /scroll-track-wrapper -->
+
+    <!--
+    ══════════════════════════════════════════════════════
+    HOW TO ADD YOUR REAL SCREENSHOTS
+    ══════════════════════════════════════════════════════
+    1. Create a folder called "screenshots" next to this index.html in your GitHub repo
+    2. Save each screenshot with these exact filenames:
+         screen1.png  — Dark map view (price bubbles on map)
+         screen2.png  — List view (Best Choice highlighted)
+         screen3.png  — Light theme map view
+         screen4.png  — Plan Route (London to Swindon / journey mode)
+         screen5.png  — Select Fuel Type screen
+         screen6.png  — Select Brands screen
+    3. In the HTML above, replace each placeholder block like this:
+         BEFORE:  <div class="phone-screen placeholder">...</div>
+         AFTER:   <img src="screenshots/screen1.png" alt="Map view showing fuel prices" />
+                  (inside the existing <div class="phone-screen"> wrapper)
+    ══════════════════════════════════════════════════════
+    -->
+
+  </section>
+
+  <!-- PLAN ROUTE HIGHLIGHT -->
+  <section class="highlight-strip">
+    <div class="highlight-inner">
+      <div class="highlight-text">
+        <h2>Save money on <em>every journey</em></h2>
+        <p>With Plan Route mode, enter your start and destination and Fuel Finder UK shows you the cheapest stations to fill up along the way — not just near your current location.</p>
+        <p>The price range bar shows you exactly how much you could save by choosing wisely.</p>
+        <div class="savings-box">
+          <div class="amount">£21+</div>
+          <div class="desc">Example saving on a<br>55 litre tank across London–Swindon</div>
+        </div>
+      </div>
+      <div class="highlight-phone">
+        <div class="phone-shell" style="width:210px; height:456px; box-shadow: 0 24px 64px rgba(0,0,0,0.4);">
+          <div class="phone-screen">
+            <!--
+              REPLACE WITH:
+              <img src="screenshots/screen4.png" alt="Plan route mode" />
+            -->
+            <div class="phone-screen placeholder">
+              <span class="ph-emoji">🚗</span>
+              <span>Plan Route screenshot<br>(screen4.png)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="section-header">
+      <h2>Why Fuel Finder UK?</h2>
+      <p>Every feature built to put money back in your pocket.</p>
+    </div>
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">📍</div>
+        <h3>Nearest &amp; Cheapest, First</h3>
+        <p>The app highlights the "Best Choice" station — balancing price and distance so you never drive miles out of your way for a marginal saving.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <h3>Updated Every 30 Minutes</h3>
+        <p>Prices are refreshed twice an hour directly from 14 official CMA retailer data feeds. No stale data, no crowd-sourced guesses.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🏛️</div>
+        <h3>Official CMA Data</h3>
+        <p>All prices come from the UK Government's Competition and Markets Authority (CMA) open data scheme — the same data all major retailers are legally required to report.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🚗</div>
+        <h3>Plan Route Mode</h3>
+        <p>Heading somewhere? Enter your destination and find the cheapest fuel along your entire route — perfect for long trips.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">⛽</div>
+        <h3>All Fuel Grades</h3>
+        <p>Choose from All Petrol, All Diesel, E10, Premium Petrol, Premium Diesel (B7P), Diesel B10, and more. If the CMA tracks it, we've got it.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🏪</div>
+        <h3>Filter by Brand</h3>
+        <p>Only want supermarket fuel? Or prefer a specific brand like BP or Shell? Filter to show only the stations you care about.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🎨</div>
+        <h3>Themes &amp; Accent Colours</h3>
+        <p>Choose Light, Dark, or AMOLED mode (pure black for battery savings on OLED screens) and pick from six accent colours to make it your own.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🆓</div>
+        <h3>Completely Free</h3>
+        <p>No subscription, no account required, no paywall. Just download, open, and start saving straight away.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DATA STRIP -->
+  <section class="data-strip">
+    <h2>Powered by the Most Reliable Data Available</h2>
+    <p>Fuel Finder UK is built on the official UK Government CMA open fuel price dataset — accurate, transparent, and legally required reporting from all major retailers.</p>
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-num">30 min</div>
+        <div class="stat-label">Price refresh rate</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">14</div>
+        <div class="stat-label">Official CMA retailer feeds</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">8,000+</div>
+        <div class="stat-label">UK stations tracked</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Free</div>
+        <div class="stat-label">Always, forever</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="cta-section">
+    <h2>Ready to Save at the Pump?</h2>
+    <p>Download for free and never pay over the odds for fuel again.</p>
+    <div class="gplay-wrap">
+      <a href="https://play.google.com/store/apps/details?id=com.fuelprices.live&pcampaignid=web_share"
+         target="_blank" rel="noopener" class="gplay-btn">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.18 1.01C2.75 1.24 2.5 1.7 2.5 2.27V21.73C2.5 22.3 2.75 22.76 3.18 22.99L3.27 23.07L13.36 12.98V12.75L3.27 0.93L3.18 1.01Z" fill="#EA4335"/>
+          <path d="M16.92 16.53L13.36 12.98V12.75L16.92 9.19L17.03 9.26L21.22 11.67C22.43 12.36 22.43 13.37 21.22 14.06L17.03 16.47L16.92 16.53Z" fill="#FBBC04"/>
+          <path d="M17.03 16.47L13.36 12.8L3.18 22.99C3.57 23.4 4.19 23.45 4.88 23.06L17.03 16.47Z" fill="#34A853"/>
+          <path d="M3.18 1.01L17.03 7.6L4.88 0.94C4.19 0.55 3.57 0.6 3.18 1.01Z" fill="#4285F4"/>
+        </svg>
+        <div class="gplay-text">
+          <small>Get it on</small>
+          <strong>Google Play</strong>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo" style="display:flex;align-items:center;justify-content:center;gap:10px;">
+        <img src="store_icon.svg" alt="" style="width:28px;height:28px;border-radius:6px;" />
+        Fuel Finder UK
+      </div>
+      <p>Helping UK drivers find cheaper fuel.<br>
+        Price data sourced from the UK Government CMA open fuel price dataset.</p>
+      <div class="footer-links">
+        <a href="https://play.google.com/store/apps/details?id=com.fuelprices.live&pcampaignid=web_share" target="_blank" rel="noopener">Google Play</a>
+        <a href="mailto:iiamdarren@gmail.com">Contact</a>
+      </div>
+      <p class="footer-disclaimer">
+        This app is not affiliated with, endorsed by, or operated by the UK Government, the Competition and Markets Authority (CMA), or any government body.
+        It is an independent third-party application that accesses publicly available CMA fuel price data.
+        © 2025 Fuel Finder UK. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
