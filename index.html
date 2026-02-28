@@ -356,6 +356,53 @@
       .phone-shell { width: 170px; height: 368px; }
       .stats-row { gap: 32px; }
     }
+      /* dark mode */
+    [data-theme='dark'] {
+      --green:   #2db37a;
+      --green-d: #1e8f5e;
+      --green-l: #1a3d2e;
+      --text:    #e8edf0;
+      --muted:   #8fa3af;
+      --border:  #2a3a42;
+      --bg:      #0e1a1f;
+      --white:   #162028;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+      --shadow:    0 4px 20px rgba(0,0,0,0.5);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.6);
+    }
+    [data-theme='dark'] body { background: var(--bg); color: var(--text); }
+    [data-theme='dark'] .nav { background: rgba(14,26,31,0.95); border-bottom-color: var(--border); }
+    [data-theme='dark'] .hero { background: linear-gradient(160deg, #0e1a1f 0%, #162028 100%); }
+    [data-theme='dark'] .screenshots-section { background: #0e1a1f; }
+    [data-theme='dark'] .phone-shell { background: #1a2832; border-color: #2a3a42; }
+    [data-theme='dark'] .features { background: #0e1a1f; }
+    [data-theme='dark'] .feature-card { background: #1e2e38; border-color: #2a3a42; }
+    [data-theme='dark'] .cma-section { background: #0e1a1f; }
+    [data-theme='dark'] .cma-card { background: #1e2e38; border-color: #2a3a42; }
+    [data-theme='dark'] .cma-quote { background: #1a3d2e; }
+    [data-theme='dark'] .cta-section { background: #0e1a1f; }
+    .theme-toggle {
+      position: fixed; top: 50%; right: 18px; transform: translateY(-50%);
+      z-index: 1000; background: var(--white); border: 1.5px solid var(--border);
+      border-radius: 50px; padding: 10px 14px; cursor: pointer;
+      box-shadow: var(--shadow); display: flex; flex-direction: column;
+      align-items: center; gap: 6px; font-size: 0.7rem; font-weight: 600;
+      color: var(--muted); transition: all 0.2s; user-select: none;
+      font-family: inherit;
+    }
+    .theme-toggle:hover { box-shadow: var(--shadow-lg); transform: translateY(-50%) scale(1.05); }
+    .theme-toggle .toggle-icon { font-size: 1.3rem; line-height: 1; }
+    .theme-toggle .toggle-label { letter-spacing: 0.03em; text-transform: uppercase; }
+    .cma-section { background: var(--bg); padding: 80px 24px; }
+    .cma-section .section-header { margin-bottom: 48px; }
+    .cma-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto 48px; }
+    .cma-card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 32px 28px; box-shadow: var(--shadow-sm); transition: transform 0.2s, box-shadow 0.2s; }
+    .cma-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .cma-card-icon { width: 52px; height: 52px; background: var(--green-l); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 18px; }
+    .cma-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+    .cma-card p { font-size: 0.92rem; color: var(--muted); line-height: 1.65; }
+    .cma-quote { max-width: 760px; margin: 0 auto; background: var(--green-l); border-left: 4px solid var(--green); border-radius: 12px; padding: 24px 28px; font-size: 1rem; color: var(--text); line-height: 1.7; font-style: italic; }
+    .cma-quote strong { font-style: normal; color: var(--green-d); }
   </style>
 </head>
 <body>
@@ -607,6 +654,33 @@
     </div>
   </section>
 
+    <!-- CMA EXPLAINER -->
+  <section class='cma-section'>
+    <div class='section-header'>
+      <h2>Why the CMA Data Matters</h2>
+      <p>Transparency laws that put money back in your pocket &#8212; here&#8217;s how it works.</p>
+    </div>
+    <div class='cma-cards'>
+      <div class='cma-card'>
+        <div class='cma-card-icon'>&#127963;</div>
+        <h3>What is the CMA?</h3>
+        <p>The Competition and Markets Authority is the UK government body responsible for ensuring fair competition and protecting consumers. They introduced mandatory fuel price reporting to stop retailers from quietly pocketing savings that should reach you at the pump.</p>
+      </div>
+      <div class='cma-card'>
+        <div class='cma-card-icon'>&#9981;</div>
+        <h3>Why does this matter for fuel prices?</h3>
+        <p>When the government reduces fuel duty or wholesale oil prices fall, those savings should be passed on to drivers. The CMA Fuel Finder scheme makes forecourt pricing transparent &#8212; making it harder for retailers to charge more than they need to.</p>
+      </div>
+      <div class='cma-card'>
+        <div class='cma-card-icon'>&#128242;</div>
+        <h3>How does this app help?</h3>
+        <p>Fuel Finder UK uses official CMA data that all major retailers are legally required to report. By comparing prices near you, you can instantly see which stations are genuinely passing on savings and which are not. Transparency drives competition, and competition drives fairer prices for everyone.</p>
+      </div>
+    </div>
+    <div class='cma-quote'>
+      <strong>The bottom line:</strong> You deserve to know if you are being overcharged. This app puts that power in your hands &#8212; for free, with no sign-up, using the same official data the government uses.
+    </div>
+  </section>
   <!-- DATA STRIP -->
   <section class="data-strip">
     <h2>Powered by the Most Reliable Data Available</h2>
@@ -673,5 +747,19 @@
     </div>
   </footer>
 
+  <script>
+    (function() {
+      var btn = document.getElementById('themeToggle');
+      var icon = document.getElementById('themeIcon');
+      var label = document.getElementById('themeLabel');
+      var dark = false;
+      btn.addEventListener('click', function() {
+        dark = !dark;
+        document.documentElement.setAttribute('data-theme', dark ? 'dark' : '');
+        icon.innerHTML = dark ? '&#9728;' : '&#127769;';
+        label.textContent = dark ? 'Light' : 'Dark';
+      });
+    })();
+  </script>
 </body>
 </html>
