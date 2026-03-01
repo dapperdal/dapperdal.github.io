@@ -5,7 +5,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fuel Finder UK – Find the Cheapest Fuel Near You</title>
   <meta name="description" content="Find the cheapest petrol and diesel near you using official UK Government CMA fuel price data, updated every 30 minutes. Free on Android." />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- Canonical & SEO -->
+  <link rel="canonical" href="https://fuelfinderuk.live/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#080e1a" />
+  <meta name="application-name" content="Fuel Finder UK" />
+  <meta name="keywords" content="cheapest petrol near me, cheapest diesel near me, fuel prices UK, petrol prices, diesel prices, CMA fuel data, cheap fuel UK, fuel finder, UK petrol app, Android fuel app" />
+  <meta name="author" content="Fuel Finder UK" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fuelfinderuk.live/" />
+  <meta property="og:title" content="Fuel Finder UK – Find the Cheapest Petrol &amp; Diesel Near You" />
+  <meta property="og:description" content="Stop overpaying at the pump. Find the cheapest petrol and diesel near you using official UK Government CMA fuel price data, updated every 30 minutes. Free on Android." />
+  <meta property="og:image" content="https://fuelfinderuk.live/store_icon.svg" />
+  <meta property="og:site_name" content="Fuel Finder UK" />
+  <meta property="og:locale" content="en_GB" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fuel Finder UK – Find the Cheapest Petrol &amp; Diesel Near You" />
+  <meta name="twitter:description" content="Stop overpaying at the pump. Find the cheapest petrol and diesel near you using official UK Government CMA data, updated every 30 minutes. Free on Android." />
+  <meta name="twitter:image" content="https://fuelfinderuk.live/store_icon.svg" />
+
+  <!-- Structured Data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Fuel Finder UK",
+    "operatingSystem": "Android",
+    "applicationCategory": "TravelApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "GBP"
+    },
+    "description": "Find the cheapest petrol and diesel near you using official UK Government CMA fuel price data, updated every 30 minutes.",
+    "url": "https://fuelfinderuk.live/",
+    "downloadUrl": "https://play.google.com/store/apps/details?id=com.fuelprices.live",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.5",
+      "ratingCount": "50"
+    }
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage for rich snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I find the cheapest petrol near me in the UK?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Download Fuel Finder UK on Android. It uses official UK Government CMA fuel price data updated every 30 minutes to show you the cheapest petrol and diesel stations near your location."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Fuel Finder UK free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Fuel Finder UK is completely free. There is no subscription, no account required, and no paywall."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What data does Fuel Finder UK use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fuel Finder UK uses the official UK Government Competition and Markets Authority (CMA) open fuel price dataset, which all major retailers are legally required to report to."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often are fuel prices updated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fuel prices are refreshed every 30 minutes directly from 14 official CMA retailer data feeds, covering over 8,000 UK stations."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="store_icon.svg" />
 
   <style>
@@ -31,7 +120,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       color: var(--text);
       background: var(--navy);
       line-height: 1.6;
@@ -153,11 +242,13 @@
 
     .hero h1 {
       font-family: 'Syne', sans-serif;
-      font-size: clamp(2.6rem, 6vw, 4.2rem);
-      font-weight: 800; line-height: 1.05;
-      max-width: 760px; margin: 0 auto 22px;
-      letter-spacing: -0.03em;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 800; line-height: 1.1;
+      max-width: 680px; margin: 0 auto 22px;
+      letter-spacing: -0.02em;
       color: var(--text);
+      word-break: normal;
+      overflow-wrap: break-word;
     }
     .hero h1 .highlight {
       color: var(--green);
@@ -272,7 +363,7 @@
     .phone-frame:hover { transform: translateY(-6px); }
     .phone-shell {
       width: 200px;
-      height: 434px;
+      height: 368px; /* inner 180×340 ≈ 9:17, close to 9:16 screenshots */
       background: #0d1829;
       border-radius: 36px;
       padding: 10px;
@@ -644,11 +735,10 @@
     [data-theme='light'] .data-strip::before { background: radial-gradient(ellipse, rgba(0,149,79,0.06) 0%, transparent 70%); }
 
     @media (max-width: 600px) {
-      .phone-frame { width: 172px; }
-      .phone-shell { width: 172px; height: 374px; }
-      .stat { min-width: 140px; }
-      .stats-row { gap: 0; }
-      .stat { border-right: none; border-bottom: 1px solid var(--navy-border); }
+      .phone-frame { width: 160px; }
+      .phone-shell { width: 160px; height: 296px; } /* inner 140×272 ≈ 9:17.5 */
+      .stats-row { flex-direction: column; align-items: center; gap: 0; }
+      .stat { width: 100%; max-width: 280px; border-right: none; border-bottom: 1px solid var(--navy-border); }
       .stat:last-child { border-bottom: none; }
     }
 
@@ -830,7 +920,7 @@
         </div>
       </div>
       <div class="highlight-phone">
-        <div class="phone-shell" style="width:216px; height:468px; box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,232,122,0.12);">
+        <div class="phone-shell" style="width:216px; height:400px; box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,232,122,0.12);">
           <div class="phone-screen">
             <img src="4_fixed.jpg" alt="Plan route mode" />
           </div>
