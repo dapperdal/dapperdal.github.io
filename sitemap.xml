@@ -7,10 +7,3 @@
     <priority>1.0</priority>
   </url>
 </urlset>
-```
----
-## 2. `robots.txt` — NEW FILE (add to root)
-```
-User-agent: *
-Allow: /
-Sitemap: https://www.fuelfinderuk.live/sitemap.xml
