@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Primary SEO -->
   <title>Fuel Finder UK - Live Prices – Compare Petrol &amp; Diesel Prices Near You</title>
-  <meta name="description" content="Compare live petrol and diesel prices near you using official UK Government CMA data, updated every 30 minutes. Free to download on Android — no sign-up required." />
+  <meta name="description" content="Find the cheapest petrol and diesel near you. Fuel Finder UK - Live Prices uses official UK Government CMA data — updated every 30 minutes — to compare live fuel prices at Tesco, Asda, Shell, BP and 8,000+ UK stations. Free on Android, no sign-up." />
   <link rel="canonical" href="https://www.fuelfinderuk.live/" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="theme-color" content="#080e1a" />
@@ -19,7 +19,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.fuelfinderuk.live/" />
   <meta property="og:title" content="Fuel Finder UK - Live Prices – Compare Petrol &amp; Diesel Prices Near You" />
-  <meta property="og:description" content="Compare live petrol and diesel prices near you using official UK Government CMA data, updated every 30 minutes. Free to download on Android — no sign-up required." />
+  <meta property="og:description" content="Find the cheapest petrol and diesel near you. Covers Tesco, Asda, Shell, BP and 8,000+ UK stations using official Government CMA data, updated every 30 minutes. Free on Android." />
   <meta property="og:image" content="https://fuelfinderuk.live/store_icon.svg" />
   <meta property="og:image:alt" content="Fuel Finder UK app icon" />
   <meta property="og:site_name" content="Fuel Finder UK - Live Prices" />
@@ -28,7 +28,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Fuel Finder UK - Live Prices – Compare Petrol &amp; Diesel Prices Near You" />
-  <meta name="twitter:description" content="Compare live petrol and diesel prices near you using official UK Government CMA data, updated every 30 minutes. Free on Android." />
+  <meta name="twitter:description" content="Find the cheapest petrol and diesel near you. Tesco, Asda, Shell, BP and 8,000+ UK stations. Official CMA data, updated every 30 minutes. Free on Android." />
   <meta name="twitter:image" content="https://fuelfinderuk.live/store_icon.svg" />
   <meta name="twitter:image:alt" content="Fuel Finder UK app icon" />
 
@@ -38,6 +38,7 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Fuel Finder UK - Live Prices",
+    "alternateName": ["Fuel Finder UK", "Fuel Finder", "UK Fuel Finder", "Fuel Price Finder UK"],
     "operatingSystem": "Android",
     "applicationCategory": "TravelApplication",
     "offers": {
@@ -45,9 +46,10 @@
       "price": "0",
       "priceCurrency": "GBP"
     },
-    "description": "Compare live petrol and diesel prices near you using official UK Government CMA fuel price data, updated every 30 minutes. Free to download on Android with no sign-up required.",
+    "description": "Find the cheapest petrol and diesel near you. Uses official UK Government CMA fuel price data, updated every 30 minutes, covering 8,000+ stations including Tesco, Asda, Sainsbury's, Morrisons, BP, Shell, and Esso. Free to download on Android with no sign-up required.",
     "url": "https://www.fuelfinderuk.live/",
     "downloadUrl": "https://play.google.com/store/apps/details?id=com.fuelprices.live",
+    "sameAs": "https://play.google.com/store/apps/details?id=com.fuelprices.live",
     "inLanguage": "en-GB",
     "countryOfOrigin": "GB"
   }
@@ -713,6 +715,53 @@
       letter-spacing: 0.03em;
     }
 
+    /* ─── COVERAGE SECTION ─── */
+    .coverage-section {
+      padding: 80px 24px;
+      background: var(--navy);
+      border-top: 1px solid var(--navy-border);
+      text-align: center;
+    }
+    .coverage-section h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800; margin-bottom: 12px;
+      letter-spacing: -0.02em; color: var(--text);
+    }
+    .coverage-section > p {
+      color: var(--muted); max-width: 560px;
+      margin: 0 auto 48px; font-size: 1rem; font-weight: 400;
+    }
+    .cities-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      max-width: 860px;
+      margin: 0 auto 40px;
+    }
+    .city-pill {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: 99px;
+      padding: 8px 18px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 500;
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .city-pill:hover {
+      border-color: rgba(0,232,122,0.3);
+      color: var(--green);
+    }
+    .coverage-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      opacity: 0.6;
+      font-family: 'Inter', sans-serif;
+    }
+
     /* ─── FAQ SECTION ─── */
     .faq-section {
       padding: 88px 24px;
@@ -981,7 +1030,7 @@
         <div class="phone-frame">
           <div class="phone-shell">
             <div class="phone-screen">
-              <img src="1_fixed.jpg" alt="Map view showing fuel prices" />
+              <img src="1_fixed.jpg" alt="Fuel Finder UK live map showing cheapest petrol and diesel prices near me" />
             </div>
           </div>
           <div class="phone-caption">
@@ -993,7 +1042,7 @@
         <div class="phone-frame">
           <div class="phone-shell">
             <div class="phone-screen">
-              <img src="2_fixed.jpg" alt="List view with best choice highlighted" />
+              <img src="2_fixed.jpg" alt="Cheapest petrol station near me highlighted in Fuel Finder UK app list view" />
             </div>
           </div>
           <div class="phone-caption">
@@ -1005,7 +1054,7 @@
         <div class="phone-frame">
           <div class="phone-shell">
             <div class="phone-screen">
-              <img src="3_fixed.jpg" alt="Classic light theme map view" />
+              <img src="3_fixed.jpg" alt="Fuel Finder UK light theme showing live petrol prices on a UK map" />
             </div>
           </div>
           <div class="phone-caption">
@@ -1017,7 +1066,7 @@
         <div class="phone-frame">
           <div class="phone-shell">
             <div class="phone-screen">
-              <img src="4_fixed.jpg" alt="Plan route mode showing cheapest fuel on journey" />
+              <img src="4_fixed.jpg" alt="Fuel Finder UK plan route mode showing cheapest fuel stations along a UK driving route" />
             </div>
           </div>
           <div class="phone-caption">
@@ -1029,7 +1078,7 @@
         <div class="phone-frame">
           <div class="phone-shell">
             <div class="phone-screen">
-              <img src="5_fixed.jpg" alt="Fuel type selection screen" />
+              <img src="5_fixed.jpg" alt="Fuel type selector in Fuel Finder UK showing E10 petrol, diesel, premium and B10 options" />
             </div>
           </div>
           <div class="phone-caption">
@@ -1041,7 +1090,7 @@
         <div class="phone-frame">
           <div class="phone-shell">
             <div class="phone-screen">
-              <img src="6_fixed.jpg" alt="Brand selection filter screen" />
+              <img src="6_fixed.jpg" alt="Fuel Finder UK brand filter showing Tesco, Asda, BP, Shell, Esso and more UK fuel stations" />
             </div>
           </div>
           <div class="phone-caption">
@@ -1070,7 +1119,7 @@
       <div class="highlight-phone">
         <div class="phone-shell" style="width:216px; height:400px; box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,232,122,0.12);">
           <div class="phone-screen">
-            <img src="4_fixed.jpg" alt="Plan route mode" />
+            <img src="4_fixed.jpg" alt="Fuel Finder UK plan route mode — find cheapest petrol along your journey" />
           </div>
         </div>
       </div>
@@ -1188,6 +1237,48 @@
         <div class="stat-label">to download today</div>
       </div>
     </div>
+  </section>
+
+  <!-- COVERAGE -->
+  <section class="coverage-section">
+    <div class="section-label">Nationwide Coverage</div>
+    <h2>Find Cheap Fuel Anywhere in the UK</h2>
+    <p>Covering petrol and diesel prices across England, Scotland, Wales and Northern Ireland — from major cities to rural areas.</p>
+    <div class="cities-grid">
+      <span class="city-pill">London</span>
+      <span class="city-pill">Manchester</span>
+      <span class="city-pill">Birmingham</span>
+      <span class="city-pill">Leeds</span>
+      <span class="city-pill">Glasgow</span>
+      <span class="city-pill">Sheffield</span>
+      <span class="city-pill">Edinburgh</span>
+      <span class="city-pill">Liverpool</span>
+      <span class="city-pill">Bristol</span>
+      <span class="city-pill">Cardiff</span>
+      <span class="city-pill">Newcastle</span>
+      <span class="city-pill">Nottingham</span>
+      <span class="city-pill">Belfast</span>
+      <span class="city-pill">Leicester</span>
+      <span class="city-pill">Coventry</span>
+      <span class="city-pill">Bradford</span>
+      <span class="city-pill">Southampton</span>
+      <span class="city-pill">Portsmouth</span>
+      <span class="city-pill">Plymouth</span>
+      <span class="city-pill">Derby</span>
+      <span class="city-pill">Reading</span>
+      <span class="city-pill">Wolverhampton</span>
+      <span class="city-pill">Stoke-on-Trent</span>
+      <span class="city-pill">Sunderland</span>
+      <span class="city-pill">Exeter</span>
+      <span class="city-pill">Aberdeen</span>
+      <span class="city-pill">Oxford</span>
+      <span class="city-pill">Cambridge</span>
+      <span class="city-pill">York</span>
+      <span class="city-pill">Swansea</span>
+      <span class="city-pill">Middlesbrough</span>
+      <span class="city-pill">Peterborough</span>
+    </div>
+    <p class="coverage-note">And every town, village and motorway service area in between — over 8,000 stations tracked nationwide.</p>
   </section>
 
   <!-- FAQ -->
