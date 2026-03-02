@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en-GB" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +8,7 @@
   <meta name="description" content="Find the cheapest petrol and diesel near you. Fuel Finder UK - Live Prices uses official UK Government CMA data — updated every 30 minutes — to compare live fuel prices at Tesco, Asda, Shell, BP and 8,000+ UK stations. Free on Android, no sign-up." />
   <link rel="canonical" href="https://www.fuelfinderuk.live/" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  <meta name="theme-color" content="#080e1a" />
+  <meta name="theme-color" content="#f4f6fa" />
   <meta name="application-name" content="Fuel Finder UK - Live Prices" />
   <meta name="keywords" content="Fuel Finder, Fuel Finder UK, Fuel Finder UK Live Prices, cheapest petrol near me, cheapest diesel near me, fuel prices UK, compare petrol prices, petrol prices today, diesel prices UK, CMA fuel prices, fuel price app UK, Android petrol app, UK fuel finder, best fuel price near me, live fuel prices, petrol station prices near me, cheap petrol stations UK, fuel price checker, live petrol prices, live diesel prices, petrol price map, supermarket fuel prices, Tesco petrol price, Asda petrol price, Sainsburys petrol price, Morrisons petrol price, BP fuel prices, Shell fuel prices, Esso petrol prices, E10 petrol prices, premium petrol prices, fuel finder app, petrol app android, diesel app UK, cheapest fuel near me, petrol price comparison UK" />
   <meta name="author" content="Fuel Finder UK" />
@@ -392,24 +392,21 @@
     /* ─── Google Play button ─── */
     .gplay-wrap { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
     .gplay-btn {
-      display: inline-flex; align-items: center; gap: 14px;
-      background: var(--navy-card);
-      border: 1px solid var(--navy-border);
-      color: var(--text);
-      padding: 14px 28px; border-radius: 14px;
+      display: inline-flex; align-items: center;
       text-decoration: none;
-      box-shadow: var(--shadow-card);
       transition: all 0.25s;
+      border-radius: 10px;
+      overflow: hidden;
     }
     .gplay-btn:hover {
-      border-color: rgba(0,232,122,0.4);
-      box-shadow: 0 0 0 1px rgba(0,232,122,0.2), 0 8px 40px rgba(0,0,0,0.5);
+      box-shadow: 0 0 0 2px rgba(0,232,122,0.35), 0 8px 32px rgba(0,0,0,0.18);
       transform: translateY(-3px);
     }
-    .gplay-btn svg { width: 28px; height: 28px; flex-shrink: 0; }
-    .gplay-text { text-align: left; }
-    .gplay-text small { display: block; font-size: 0.68rem; opacity: 0.5; letter-spacing: 0.08em; text-transform: uppercase; font-family: 'Inter', sans-serif; }
-    .gplay-text strong { display: block; font-size: 1.1rem; font-weight: 600; line-height: 1.2; }
+    .gplay-btn img.gplay-badge {
+      height: 68px;
+      width: auto;
+      display: block;
+    }
 
     .trust-row {
       display: flex; justify-content: center; align-items: center;
@@ -1037,8 +1034,8 @@
 
   <!-- THEME TOGGLE -->
   <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-    <span class="toggle-icon" id="themeIcon">☀️</span>
-    <span id="themeLabel">Light</span>
+    <span class="toggle-icon" id="themeIcon">🌙</span>
+    <span id="themeLabel">Dark</span>
   </button>
 
   <!-- NAV -->
@@ -1075,16 +1072,9 @@
     <div class="gplay-wrap">
       <a href="https://play.google.com/store/apps/details?id=com.fuelprices.live&pcampaignid=web_share"
          target="_blank" rel="noopener" class="gplay-btn">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3.18 1.01C2.75 1.24 2.5 1.7 2.5 2.27V21.73C2.5 22.3 2.75 22.76 3.18 22.99L3.27 23.07L13.36 12.98V12.75L3.27 0.93L3.18 1.01Z" fill="#EA4335"/>
-          <path d="M16.92 16.53L13.36 12.98V12.75L16.92 9.19L17.03 9.26L21.22 11.67C22.43 12.36 22.43 13.37 21.22 14.06L17.03 16.47L16.92 16.53Z" fill="#FBBC04"/>
-          <path d="M17.03 16.47L13.36 12.8L3.18 22.99C3.57 23.4 4.19 23.45 4.88 23.06L17.03 16.47Z" fill="#34A853"/>
-          <path d="M3.18 1.01L17.03 7.6L4.88 0.94C4.19 0.55 3.57 0.6 3.18 1.01Z" fill="#4285F4"/>
-        </svg>
-        <div class="gplay-text">
-          <small>Get it on</small>
-          <strong>Google Play</strong>
-        </div>
+        <img class="gplay-badge"
+             src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+             alt="Get it on Google Play" />
       </a>
     </div>
 
@@ -1144,8 +1134,20 @@
             </div>
           </div>
           <div class="phone-caption">
-            Light &amp; Dark Themes
-            <span>Classic light, dark, or AMOLED — choose the look that suits you</span>
+            Light Theme
+            <span>Clean light mode — easy to read in bright daylight</span>
+          </div>
+        </div>
+
+        <div class="phone-frame">
+          <div class="phone-shell">
+            <div class="phone-screen">
+              <img src="3.5_fixed.jpg" alt="Fuel Finder UK AMOLED dark orange theme showing live petrol prices — deep black background saves battery on OLED screens" />
+            </div>
+          </div>
+          <div class="phone-caption">
+            AMOLED Dark Theme
+            <span>Deep black &amp; orange — stunning on OLED screens &amp; saves battery</span>
           </div>
         </div>
 
@@ -1479,16 +1481,9 @@
     <div class="gplay-wrap">
       <a href="https://play.google.com/store/apps/details?id=com.fuelprices.live&pcampaignid=web_share"
          target="_blank" rel="noopener" class="gplay-btn">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3.18 1.01C2.75 1.24 2.5 1.7 2.5 2.27V21.73C2.5 22.3 2.75 22.76 3.18 22.99L3.27 23.07L13.36 12.98V12.75L3.27 0.93L3.18 1.01Z" fill="#EA4335"/>
-          <path d="M16.92 16.53L13.36 12.98V12.75L16.92 9.19L17.03 9.26L21.22 11.67C22.43 12.36 22.43 13.37 21.22 14.06L17.03 16.47L16.92 16.53Z" fill="#FBBC04"/>
-          <path d="M17.03 16.47L13.36 12.8L3.18 22.99C3.57 23.4 4.19 23.45 4.88 23.06L17.03 16.47Z" fill="#34A853"/>
-          <path d="M3.18 1.01L17.03 7.6L4.88 0.94C4.19 0.55 3.57 0.6 3.18 1.01Z" fill="#4285F4"/>
-        </svg>
-        <div class="gplay-text">
-          <small>Get it on</small>
-          <strong>Google Play</strong>
-        </div>
+        <img class="gplay-badge"
+             src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+             alt="Get it on Google Play" />
       </a>
     </div>
   </section>
@@ -1520,7 +1515,7 @@
       var btn = document.getElementById('themeToggle');
       var icon = document.getElementById('themeIcon');
       var label = document.getElementById('themeLabel');
-      var light = false;
+      var light = true;
       btn.addEventListener('click', function() {
         light = !light;
         document.documentElement.setAttribute('data-theme', light ? 'light' : '');
