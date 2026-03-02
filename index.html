@@ -10,7 +10,7 @@
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="theme-color" content="#080e1a" />
   <meta name="application-name" content="Fuel Finder UK - Live Prices" />
-  <meta name="keywords" content="cheapest petrol near me, cheapest diesel near me, fuel prices UK, compare petrol prices, petrol prices today, diesel prices UK, CMA fuel prices, fuel price app UK, Android petrol app, UK fuel finder, best fuel price near me, live fuel prices" />
+  <meta name="keywords" content="Fuel Finder, Fuel Finder UK, Fuel Finder UK Live Prices, cheapest petrol near me, cheapest diesel near me, fuel prices UK, compare petrol prices, petrol prices today, diesel prices UK, CMA fuel prices, fuel price app UK, Android petrol app, UK fuel finder, best fuel price near me, live fuel prices, petrol station prices near me, cheap petrol stations UK, fuel price checker, live petrol prices, live diesel prices, petrol price map, supermarket fuel prices, Tesco petrol price, Asda petrol price, Sainsburys petrol price, Morrisons petrol price, BP fuel prices, Shell fuel prices, Esso petrol prices, E10 petrol prices, premium petrol prices, fuel finder app, petrol app android, diesel app UK, cheapest fuel near me, petrol price comparison UK" />
   <meta name="author" content="Fuel Finder UK" />
   <meta name="geo.region" content="GB" />
   <meta name="geo.placename" content="United Kingdom" />
@@ -96,7 +96,71 @@
         "name": "Does Fuel Finder UK work on iPhone?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Fuel Finder UK is currently available on Android devices via Google Play. An iOS version is not available at this time."
+          "text": "Fuel Finder UK - Live Prices is currently available on Android devices via Google Play. An iOS version is not available at this time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the cheapest petrol near me?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Fuel Finder UK - Live Prices app shows you the cheapest petrol stations near your current location in real time, using official UK Government CMA data updated every 30 minutes. Download it free on Android to find the best petrol price near you instantly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I find cheap diesel near me in the UK?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Open Fuel Finder UK - Live Prices on Android, select Diesel as your fuel type, and the app will show you the cheapest diesel stations near you ranked by price and distance. Prices come directly from the official CMA fuel price dataset, updated every 30 minutes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which supermarket has the cheapest fuel today?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Supermarket fuel prices — including Tesco, Asda, Sainsbury's, and Morrisons — are all included in the Fuel Finder UK - Live Prices app. You can filter by brand to compare supermarket petrol and diesel prices near you, updated every 30 minutes from the official CMA dataset."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the app show Tesco, Asda, Sainsbury's and Morrisons fuel prices?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Fuel Finder UK - Live Prices includes live prices from all major supermarket fuel stations — Tesco, Asda, Sainsbury's, and Morrisons — as well as branded forecourts like BP, Shell, Esso, and many more. You can filter by brand to see only the stations you want."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a free petrol price comparison app for Android in the UK?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — Fuel Finder UK - Live Prices is a completely free Android app that lets you compare live petrol and diesel prices across the UK. There is no subscription, no account, and no paywall. Download it free on Google Play."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate are the fuel prices in the app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Very accurate. Fuel Finder UK - Live Prices uses the official UK Government CMA open fuel price dataset, which all major fuel retailers are legally required to update. Prices are refreshed every 30 minutes, covering over 8,000 petrol stations across the UK."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I find the cheapest fuel along a driving route?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Fuel Finder UK - Live Prices has a Plan Route mode where you enter your start and destination, and the app shows you the cheapest fuel stations along your entire journey — not just near where you are. This is ideal for long motorway trips where you want to fill up at the best price along the way."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What fuel types does the app support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fuel Finder UK - Live Prices supports all major fuel grades tracked by the UK Government CMA scheme, including E10 petrol, premium petrol, standard diesel, premium diesel (B7P), diesel B10, and more."
         }
       }
     ]
@@ -649,6 +713,72 @@
       letter-spacing: 0.03em;
     }
 
+    /* ─── FAQ SECTION ─── */
+    .faq-section {
+      padding: 88px 24px;
+      background: var(--navy-mid);
+      border-top: 1px solid var(--navy-border);
+      border-bottom: 1px solid var(--navy-border);
+    }
+    .faq-list {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-item {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item:hover { border-color: rgba(0,232,122,0.2); }
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 20px 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.97rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--green-dim);
+      border: 1px solid rgba(0,232,122,0.25);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green);
+      font-size: 0.75rem;
+      transition: transform 0.25s;
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding: 0 24px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.75;
+      font-weight: 400;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding-bottom: 20px;
+    }
+
     /* ─── BOTTOM CTA ─── */
     .cta-section {
       padding: 100px 24px;
@@ -1028,7 +1158,7 @@
       <div class="cma-card">
         <div class="cma-card-icon">📱</div>
         <h3>How does this app help?</h3>
-        <p>Fuel Finder UK uses official CMA data that all major retailers are legally required to report. With live prices from thousands of stations in one place, you can quickly compare and choose the best deal near you — all for free, with no account needed.</p>
+        <p>Fuel Finder UK - Live Prices (also known simply as Fuel Finder or Fuel Finder UK) uses official CMA data that all major retailers are legally required to report. With live prices from thousands of stations in one place, you can quickly compare and choose the best deal near you — all for free, with no account needed.</p>
       </div>
     </div>
     <div class="cma-quote">
@@ -1060,6 +1190,90 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="section-header">
+      <div class="section-label">FAQ</div>
+      <h2>Common Questions</h2>
+      <p>Everything you need to know about finding cheap fuel near you.</p>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What is the cheapest petrol near me right now?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">Fuel Finder UK - Live Prices shows you the cheapest petrol stations near your location in real time, using official UK Government CMA data updated every 30 minutes. Download free on Android and find the best petrol price near you instantly — no sign-up needed.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How do I find cheap diesel near me in the UK?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">Open the app, select Diesel as your fuel type, and you'll instantly see the cheapest diesel stations near you ranked by price and distance. All prices come from the official CMA dataset and are refreshed every 30 minutes across 8,000+ stations.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Which supermarket has the cheapest fuel today — Tesco, Asda, Sainsbury's or Morrisons?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">All four supermarket chains — Tesco, Asda, Sainsbury's, and Morrisons — are included in the app alongside branded forecourts like BP, Shell, Esso, and more. Use the brand filter to compare supermarket petrol and diesel prices near you, all updated every 30 minutes.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Is there a free petrol price app for Android in the UK?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">Yes — Fuel Finder UK - Live Prices is completely free on Android. No subscription, no account, no paywall. Just download from Google Play and start comparing live petrol and diesel prices near you straight away.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How accurate are the petrol and diesel prices shown?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">Very accurate. We use the official UK Government CMA open fuel price dataset — all major retailers are legally required to submit their prices to this scheme. Prices are refreshed every 30 minutes from 14 official retailer feeds covering over 8,000 petrol stations across the UK.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Can I find the cheapest fuel along my driving route?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">Yes. Plan Route mode lets you enter a start and destination, and the app finds the cheapest stations to fill up along your entire journey — not just near where you are. Perfect for long motorway trips where a smart stop can save you £20 or more on a full tank.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Does the app support E10 petrol and premium fuels?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">Yes. Fuel Finder UK - Live Prices supports all fuel grades tracked by the CMA scheme: E10 petrol, standard petrol, premium petrol, standard diesel, premium diesel (B7P), diesel B10, and more. Select your exact fuel type before searching.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Does Fuel Finder UK - Live Prices work on iPhone or iOS?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">The app is currently available on Android via Google Play only. An iOS version is not available at this time. Search for "Fuel Finder UK" on Google Play to download it free.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Where does the fuel price data come from?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">All prices come from the UK Government's Competition and Markets Authority (CMA) open fuel price dataset. Since 2023, all major fuel retailers in the UK are legally required to report their forecourt prices to this scheme — making it the most reliable and comprehensive source of live fuel prices in the country.</div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- BOTTOM CTA -->
   <section class="cta-section">
     <h2>Start Comparing Fuel Prices Today</h2>
@@ -1088,7 +1302,7 @@
         <img src="store_icon.svg" alt="" />
         Fuel Finder UK - Live Prices
       </div>
-      <p>Helping UK drivers find cheaper fuel.<br>
+      <p>Fuel Finder UK helping UK drivers find cheaper fuel.<br>
         Price data sourced from the UK Government CMA open fuel price dataset.</p>
       <div class="footer-links">
         <a href="https://play.google.com/store/apps/details?id=com.fuelprices.live&pcampaignid=web_share" target="_blank" rel="noopener">Google Play</a>
@@ -1114,6 +1328,24 @@
         document.documentElement.setAttribute('data-theme', light ? 'light' : '');
         icon.textContent = light ? '🌙' : '☀️';
         label.textContent = light ? 'Dark' : 'Light';
+      });
+    })();
+
+    // FAQ accordion
+    (function() {
+      document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var item = btn.closest('.faq-item');
+          var isOpen = item.classList.contains('open');
+          document.querySelectorAll('.faq-item.open').forEach(function(el) {
+            el.classList.remove('open');
+            el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          });
+          if (!isOpen) {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
       });
     })();
 
