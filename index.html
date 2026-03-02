@@ -233,16 +233,16 @@
       --navy-mid:  #0d1829;
       --navy-card: #111e30;
       --navy-border:#1c2d45;
-      --green:     #00e87a;
-      --green-d:   #00b85f;
-      --green-dim: rgba(0,232,122,0.12);
-      --green-glow:rgba(0,232,122,0.25);
+      --green:     #ff7a00;
+      --green-d:   #cc6200;
+      --green-dim: rgba(255,122,0,0.12);
+      --green-glow:rgba(255,122,0,0.25);
       --text:      #eef2f7;
       --muted:     #7a90aa;
       --accent:    #3b82f6;
       --white:     #ffffff;
       --shadow-card: 0 2px 20px rgba(0,0,0,0.4);
-      --shadow-hover:0 8px 40px rgba(0,232,122,0.15), 0 4px 24px rgba(0,0,0,0.5);
+      --shadow-hover:0 8px 40px rgba(255,122,0,0.15), 0 4px 24px rgba(0,0,0,0.5);
     }
 
     html { scroll-behavior: smooth; }
@@ -287,8 +287,8 @@
       border-radius: 10px;
       overflow: hidden;
       flex-shrink: 0;
-      border: 1px solid rgba(0,232,122,0.3);
-      box-shadow: 0 0 16px rgba(0,232,122,0.2);
+      border: 1px solid rgba(255,122,0,0.3);
+      box-shadow: 0 0 16px rgba(255,122,0,0.2);
     }
     .logo-icon img { width: 100%; height: 100%; display: block; }
     .nav-cta {
@@ -297,11 +297,11 @@
       font-weight: 600; font-size: 0.875rem;
       text-decoration: none; transition: all 0.2s;
       letter-spacing: 0.01em;
-      box-shadow: 0 0 20px rgba(0,232,122,0.3);
+      box-shadow: 0 0 20px rgba(255,122,0,0.3);
     }
     .nav-cta:hover {
       background: #fff;
-      box-shadow: 0 0 32px rgba(0,232,122,0.5);
+      box-shadow: 0 0 32px rgba(255,122,0,0.5);
       transform: translateY(-1px);
     }
 
@@ -315,7 +315,7 @@
     .hero-glow {
       position: absolute;
       width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(0,232,122,0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,122,0,0.1) 0%, transparent 70%);
       top: -200px; left: 50%; transform: translateX(-50%);
       pointer-events: none;
     }
@@ -333,7 +333,7 @@
       width: 100px; height: 100px;
       border-radius: 24px;
       margin: 0 auto 20px;
-      box-shadow: 0 0 0 1px rgba(0,232,122,0.25), 0 8px 40px rgba(0,0,0,0.5), 0 0 60px rgba(0,232,122,0.15);
+      box-shadow: 0 0 0 1px rgba(255,122,0,0.25), 0 8px 40px rgba(0,0,0,0.5), 0 0 60px rgba(255,122,0,0.15);
       animation: iconFloat 4s ease-in-out infinite;
     }
     @keyframes iconFloat {
@@ -350,7 +350,7 @@
       margin: 0 auto 32px;
       width: fit-content;
       background: var(--green-dim);
-      border: 1px solid rgba(0,232,122,0.3);
+      border: 1px solid rgba(255,122,0,0.3);
       color: var(--green);
       border-radius: 12px;
       padding: 10px 20px;
@@ -399,7 +399,7 @@
       overflow: hidden;
     }
     .gplay-btn:hover {
-      box-shadow: 0 0 0 2px rgba(0,232,122,0.35), 0 8px 32px rgba(0,0,0,0.18);
+      box-shadow: 0 0 0 2px rgba(255,122,0,0.35), 0 8px 32px rgba(0,0,0,0.18);
       transform: translateY(-3px);
     }
     .gplay-btn img.gplay-badge {
@@ -599,7 +599,7 @@
       content: '';
       position: absolute;
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(0,232,122,0.05) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,122,0,0.05) 0%, transparent 70%);
       right: -100px; top: 50%; transform: translateY(-50%);
       pointer-events: none;
     }
@@ -625,7 +625,7 @@
     .savings-box {
       display: inline-flex; align-items: center; gap: 16px;
       background: var(--green-dim);
-      border: 1px solid rgba(0,232,122,0.25);
+      border: 1px solid rgba(255,122,0,0.25);
       border-radius: 14px; padding: 16px 22px;
     }
     .savings-box .amount {
@@ -662,20 +662,20 @@
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0,232,122,0.2), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,122,0,0.2), transparent);
       opacity: 0;
       transition: opacity 0.25s;
     }
     .feature-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(0,232,122,0.2);
+      border-color: rgba(255,122,0,0.2);
       box-shadow: var(--shadow-hover);
     }
     .feature-card:hover::before { opacity: 1; }
     .feature-icon {
       width: 46px; height: 46px;
       background: var(--green-dim);
-      border: 1px solid rgba(0,232,122,0.2);
+      border: 1px solid rgba(255,122,0,0.2);
       border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.3rem; margin-bottom: 16px;
@@ -710,13 +710,13 @@
     }
     .cma-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(0,232,122,0.2);
+      border-color: rgba(255,122,0,0.2);
       box-shadow: var(--shadow-hover);
     }
     .cma-card-icon {
       width: 52px; height: 52px;
       background: var(--green-dim);
-      border: 1px solid rgba(0,232,122,0.2);
+      border: 1px solid rgba(255,122,0,0.2);
       border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.5rem; margin-bottom: 18px;
@@ -730,7 +730,7 @@
     .cma-quote {
       max-width: 780px; margin: 0 auto;
       background: var(--green-dim);
-      border: 1px solid rgba(0,232,122,0.25);
+      border: 1px solid rgba(255,122,0,0.25);
       border-left: 4px solid var(--green);
       border-radius: 16px; padding: 28px 32px;
       font-size: 1rem; color: var(--text);
@@ -750,7 +750,7 @@
       content: '';
       position: absolute;
       width: 800px; height: 400px;
-      background: radial-gradient(ellipse, rgba(0,232,122,0.06) 0%, transparent 70%);
+      background: radial-gradient(ellipse, rgba(255,122,0,0.06) 0%, transparent 70%);
       top: 50%; left: 50%; transform: translate(-50%, -50%);
       pointer-events: none;
     }
@@ -830,7 +830,7 @@
       font-family: 'Inter', sans-serif;
     }
     .city-pill:hover {
-      border-color: rgba(0,232,122,0.3);
+      border-color: rgba(255,122,0,0.3);
       color: var(--green);
     }
     .coverage-note {
@@ -861,7 +861,7 @@
       overflow: hidden;
       transition: border-color 0.2s;
     }
-    .faq-item:hover { border-color: rgba(0,232,122,0.2); }
+    .faq-item:hover { border-color: rgba(255,122,0,0.2); }
     .faq-question {
       width: 100%;
       text-align: left;
@@ -884,7 +884,7 @@
       width: 20px; height: 20px;
       border-radius: 50%;
       background: var(--green-dim);
-      border: 1px solid rgba(0,232,122,0.25);
+      border: 1px solid rgba(255,122,0,0.25);
       display: flex; align-items: center; justify-content: center;
       color: var(--green);
       font-size: 0.75rem;
@@ -917,7 +917,7 @@
       content: '';
       position: absolute;
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(0,232,122,0.08) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(255,122,0,0.08) 0%, transparent 65%);
       top: 50%; left: 50%; transform: translate(-50%, -50%);
       pointer-events: none;
     }
@@ -983,8 +983,8 @@
       letter-spacing: 0.02em;
     }
     .theme-toggle:hover {
-      border-color: rgba(0,232,122,0.3);
-      box-shadow: 0 0 20px rgba(0,232,122,0.15);
+      border-color: rgba(255,122,0,0.3);
+      box-shadow: 0 0 20px rgba(255,122,0,0.15);
       transform: scale(1.05);
     }
     .theme-toggle .toggle-icon { font-size: 1rem; line-height: 1; }
@@ -995,19 +995,19 @@
       --navy-mid:  #eaecf3;
       --navy-card: #ffffff;
       --navy-border:#d8dce8;
-      --green:     #00954f;
-      --green-d:   #006e3a;
-      --green-dim: rgba(0,149,79,0.08);
-      --green-glow:rgba(0,149,79,0.2);
+      --green:     #d4520a;
+      --green-d:   #9a3a07;
+      --green-dim: rgba(212,82,10,0.08);
+      --green-glow:rgba(212,82,10,0.2);
       --text:      #0d1829;
       --muted:     #5a6880;
       --shadow-card: 0 2px 12px rgba(0,0,0,0.08);
-      --shadow-hover:0 8px 32px rgba(0,149,79,0.12), 0 4px 20px rgba(0,0,0,0.1);
+      --shadow-hover:0 8px 32px rgba(212,82,10,0.12), 0 4px 20px rgba(0,0,0,0.1);
     }
     [data-theme='light'] body { background: var(--navy); color: var(--text); }
     [data-theme='light'] nav { background: rgba(244,246,250,0.92); }
 
-    [data-theme='light'] .data-strip::before { background: radial-gradient(ellipse, rgba(0,149,79,0.06) 0%, transparent 70%); }
+    [data-theme='light'] .data-strip::before { background: radial-gradient(ellipse, rgba(212,82,10,0.06) 0%, transparent 70%); }
 
     @media (max-width: 600px) {
       .phone-frame { width: 190px; }
@@ -1205,7 +1205,7 @@
         </div>
       </div>
       <div class="highlight-phone">
-        <div class="phone-shell" style="width:216px; height:472px; box-shadow: 0 32px 80px rgba(0,0,0,0.7), 0 0 0 1.5px rgba(255,255,255,0.08), 0 0 0 2.5px #0a1220, 0 0 0 4px rgba(0,232,122,0.1);">
+        <div class="phone-shell" style="width:216px; height:472px; box-shadow: 0 32px 80px rgba(0,0,0,0.7), 0 0 0 1.5px rgba(255,255,255,0.08), 0 0 0 2.5px #0a1220, 0 0 0 4px rgba(255,122,0,0.1);">
           <div class="phone-screen">
             <img src="4_fixed.jpg" alt="Fuel Finder UK plan route mode — find cheapest petrol along your journey" />
           </div>
