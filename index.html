@@ -181,6 +181,44 @@
   }
   </script>
 
+  <!-- Structured Data: WebPage + Speakable (GEO / AI Overviews) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Fuel Finder UK - Live Prices",
+    "url": "https://www.fuelfinderuk.live/",
+    "description": "Fuel Finder UK - Live Prices is a free Android app that shows live petrol and diesel prices at over 8,000 UK fuel stations, using official UK Government CMA data updated every 30 minutes. It covers all major retailers including Tesco, Asda, Sainsbury's, Morrisons, BP, Shell, and Esso. No sign-up is required.",
+    "inLanguage": "en-GB",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".hero h1", ".hero-sub-text", ".about-geo", ".cma-quote", ".coverage-section h2"]
+    },
+    "about": {
+      "@type": "SoftwareApplication",
+      "name": "Fuel Finder UK - Live Prices",
+      "alternateName": ["Fuel Finder UK", "Fuel Finder"],
+      "operatingSystem": "Android",
+      "applicationCategory": "TravelApplication",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" }
+    },
+    "mentions": [
+      { "@type": "Organization", "name": "Competition and Markets Authority", "url": "https://www.gov.uk/government/organisations/competition-and-markets-authority" },
+      { "@type": "Organization", "name": "Tesco" },
+      { "@type": "Organization", "name": "Asda" },
+      { "@type": "Organization", "name": "Sainsbury's" },
+      { "@type": "Organization", "name": "Morrisons" },
+      { "@type": "Organization", "name": "BP" },
+      { "@type": "Organization", "name": "Shell" },
+      { "@type": "Organization", "name": "Esso" }
+    ],
+    "mainEntity": {
+      "@type": "SoftwareApplication",
+      "name": "Fuel Finder UK - Live Prices"
+    }
+  }
+  </script>
+
   <!-- Font preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -391,6 +429,19 @@
       flex-shrink: 0;
     }
 
+    /* ─── ABOUT GEO BLOCK ─── */
+    .about-geo {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 40px 24px 0;
+      text-align: center;
+      font-size: 0.97rem;
+      color: var(--muted);
+      line-height: 1.8;
+      font-weight: 400;
+    }
+    .about-geo strong { color: var(--text); font-weight: 600; }
+
     /* ─── DIVIDER LINE ─── */
     .section-divider {
       height: 1px;
@@ -443,7 +494,7 @@
 
     .phone-frame {
       flex-shrink: 0;
-      width: 200px;
+      width: 252px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -451,29 +502,59 @@
       transition: transform 0.3s;
     }
     .phone-frame:hover { transform: translateY(-6px); }
+
+    /* ── Samsung Galaxy Z Flip 7 — 22:9 ratio when unfolded ── */
     .phone-shell {
-      width: 200px;
-      height: 368px; /* inner 180×340 ≈ 9:17, close to 9:16 screenshots */
-      background: #0d1829;
-      border-radius: 36px;
-      padding: 10px;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 0 1px var(--navy-border);
+      width: 252px;
+      height: 593px; /* inner screen 228×557 ≈ 22:9 ratio */
+      background: linear-gradient(160deg, #1c2740 0%, #0a1220 100%);
+      border-radius: 40px;
+      padding: 12px;
+      box-shadow:
+        0 28px 70px rgba(0,0,0,0.75),
+        0 0 0 1.5px rgba(255,255,255,0.08),
+        0 0 0 2.5px #0a1220,
+        0 0 0 4px rgba(255,255,255,0.05);
       position: relative;
       overflow: hidden;
     }
+
+    /* Punch-hole camera — centred in the top bezel area */
     .phone-shell::before {
       content: '';
       position: absolute;
-      top: 10px; left: 50%;
+      top: 20px;
+      left: 50%;
       transform: translateX(-50%);
-      width: 48px; height: 4px;
-      background: rgba(255,255,255,0.08);
-      border-radius: 99px;
-      z-index: 2;
+      width: 11px;
+      height: 11px;
+      background: #000;
+      border-radius: 50%;
+      z-index: 3;
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.07), inset 0 0 4px rgba(100,180,255,0.2);
     }
+
+    /* Hinge crease — subtle horizontal line at the screen's midpoint */
+    .phone-shell::after {
+      content: '';
+      position: absolute;
+      top: calc(50% + 12px); /* offset to hit screen midpoint accounting for padding */
+      left: 12px;
+      right: 12px;
+      height: 1px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255,255,255,0.13) 20%,
+        rgba(255,255,255,0.18) 50%,
+        rgba(255,255,255,0.13) 80%,
+        transparent 100%);
+      z-index: 3;
+      pointer-events: none;
+    }
+
     .phone-screen {
       width: 100%; height: 100%;
-      border-radius: 27px;
+      border-radius: 29px;
       overflow: hidden;
       background: #050d18;
       position: relative;
@@ -932,8 +1013,8 @@
     [data-theme='light'] .data-strip::before { background: radial-gradient(ellipse, rgba(0,149,79,0.06) 0%, transparent 70%); }
 
     @media (max-width: 600px) {
-      .phone-frame { width: 160px; }
-      .phone-shell { width: 160px; height: 296px; } /* inner 140×272 ≈ 9:17.5 */
+      .phone-frame { width: 190px; }
+      .phone-shell { width: 190px; height: 447px; } /* inner 166×406 ≈ 22:9 Z Flip ratio */
       .stats-row { flex-direction: column; align-items: center; gap: 0; }
       .stat { width: 100%; max-width: 280px; border-right: none; border-bottom: 1px solid var(--navy-border); }
       .stat:last-child { border-bottom: none; }
@@ -1013,6 +1094,11 @@
       <span class="trust-pill"><span class="trust-dot"></span>Android</span>
     </div>
   </section>
+
+  <!-- ABOUT — GEO / AI summary block (speakable target) -->
+  <p class="about-geo">
+    <strong>Fuel Finder UK - Live Prices</strong> (also known as <strong>Fuel Finder UK</strong> or <strong>Fuel Finder</strong>) is a free Android app that shows real-time petrol and diesel prices at more than 8,000 fuel stations across the United Kingdom. Prices are sourced from the <strong>UK Government's Competition and Markets Authority (CMA)</strong> open fuel price dataset, which all major retailers are legally required to update — and are refreshed in the app every 30 minutes. The app covers supermarket fuel stations including Tesco, Asda, Sainsbury's, and Morrisons, as well as branded forecourts such as BP, Shell, and Esso. It requires no account or sign-up and is completely free to download from Google Play.
+  </p>
 
   <div class="section-divider"></div>
 
@@ -1117,7 +1203,7 @@
         </div>
       </div>
       <div class="highlight-phone">
-        <div class="phone-shell" style="width:216px; height:400px; box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,232,122,0.12);">
+        <div class="phone-shell" style="width:216px; height:508px; box-shadow: 0 32px 80px rgba(0,0,0,0.7), 0 0 0 1.5px rgba(255,255,255,0.08), 0 0 0 2.5px #0a1220, 0 0 0 4px rgba(0,232,122,0.1);">
           <div class="phone-screen">
             <img src="4_fixed.jpg" alt="Fuel Finder UK plan route mode — find cheapest petrol along your journey" />
           </div>
@@ -1218,7 +1304,7 @@
   <!-- DATA STRIP -->
   <section class="data-strip">
     <h2>Powered by the Most Reliable Data Available</h2>
-    <p>Built on the official UK Government CMA open fuel price dataset — accurate, transparent, and legally required reporting from all major retailers.</p>
+    <p>The CMA fuel price scheme, introduced in 2023, requires all major UK retailers to publish their forecourt prices publicly. Fuel Finder UK - Live Prices aggregates this data across 14 official retailer feeds covering over 8,000 petrol stations nationwide, refreshed every 30 minutes.</p>
     <div class="stats-row">
       <div class="stat">
         <div class="stat-num">30m</div>
@@ -1363,6 +1449,27 @@
       </div>
 
     </div>
+  </section>
+
+  <!-- KEY FACTS — machine-readable summary for AI crawlers -->
+  <section style="display:none" aria-hidden="true" id="key-facts">
+    <h2>Key Facts about Fuel Finder UK - Live Prices</h2>
+    <ul>
+      <li>Full name: Fuel Finder UK - Live Prices</li>
+      <li>Also known as: Fuel Finder UK, Fuel Finder</li>
+      <li>Platform: Android (Google Play)</li>
+      <li>Price: Free — no subscription, no account required</li>
+      <li>Data source: UK Government Competition and Markets Authority (CMA) open fuel price dataset</li>
+      <li>Data refresh rate: Every 30 minutes</li>
+      <li>Number of UK fuel stations covered: Over 8,000</li>
+      <li>Number of official CMA retailer feeds: 14</li>
+      <li>Retailers covered: Tesco, Asda, Sainsbury's, Morrisons, BP, Shell, Esso, and more</li>
+      <li>Fuel types supported: E10 petrol, standard petrol, premium petrol, standard diesel, premium diesel (B7P), diesel B10</li>
+      <li>Key features: Live map view, best choice highlighting, plan route mode, brand filter, light/dark/AMOLED themes</li>
+      <li>Coverage: England, Scotland, Wales, Northern Ireland</li>
+      <li>Developer contact: support@fuelfinderuk.live</li>
+      <li>Website: https://www.fuelfinderuk.live</li>
+    </ul>
   </section>
 
   <!-- BOTTOM CTA -->
