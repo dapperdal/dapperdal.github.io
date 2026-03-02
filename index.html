@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-GB" data-theme="light">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +8,7 @@
   <meta name="description" content="Find the cheapest petrol and diesel near you. Fuel Finder UK - Live Prices uses official UK Government CMA data — updated every 30 minutes — to compare live fuel prices at Tesco, Asda, Shell, BP and 8,000+ UK stations. Free on Android, no sign-up." />
   <link rel="canonical" href="https://www.fuelfinderuk.live/" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  <meta name="theme-color" content="#f4f6fa" />
+  <meta name="theme-color" content="#080e1a" />
   <meta name="application-name" content="Fuel Finder UK - Live Prices" />
   <meta name="keywords" content="Fuel Finder, Fuel Finder UK, Fuel Finder UK Live Prices, cheapest petrol near me, cheapest diesel near me, fuel prices UK, compare petrol prices, petrol prices today, diesel prices UK, CMA fuel prices, fuel price app UK, Android petrol app, UK fuel finder, best fuel price near me, live fuel prices, petrol station prices near me, cheap petrol stations UK, fuel price checker, live petrol prices, live diesel prices, petrol price map, supermarket fuel prices, Tesco petrol price, Asda petrol price, Sainsburys petrol price, Morrisons petrol price, BP fuel prices, Shell fuel prices, Esso petrol prices, E10 petrol prices, premium petrol prices, fuel finder app, petrol app android, diesel app UK, cheapest fuel near me, petrol price comparison UK" />
   <meta name="author" content="Fuel Finder UK" />
@@ -1039,11 +1039,9 @@
   <!-- THEME TOGGLE -->
   <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
     <span class="toggle-icon" id="themeIcon">
-      <svg id="themeIconSvg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-      </svg>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
     </span>
-    <span id="themeLabel">Dark</span>
+    <span id="themeLabel">Light</span>
   </button>
 
   <!-- NAV -->
@@ -1087,7 +1085,7 @@
       <a href="https://play.google.com/store/apps/details?id=com.fuelprices.live&pcampaignid=web_share"
          target="_blank" rel="noopener" class="gplay-btn">
         <img class="gplay-badge"
-             src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+             src="google-play-badge.png"
              alt="Get it on Google Play" />
       </a>
     </div>
@@ -1496,7 +1494,7 @@
       <a href="https://play.google.com/store/apps/details?id=com.fuelprices.live&pcampaignid=web_share"
          target="_blank" rel="noopener" class="gplay-btn">
         <img class="gplay-badge"
-             src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+             src="google-play-badge.png"
              alt="Get it on Google Play" />
       </a>
     </div>
@@ -1529,7 +1527,7 @@
       var btn = document.getElementById('themeToggle');
       var icon = document.getElementById('themeIcon');
       var label = document.getElementById('themeLabel');
-      var light = true;
+      var light = false;
       btn.addEventListener('click', function() {
         light = !light;
         document.documentElement.setAttribute('data-theme', light ? 'light' : '');
