@@ -1,0 +1,8 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+          "namespace": "android_app",
+          "package_name": "com.fuelprices.live",
+          "sha256_cert_fingerprints": ["4D:13:15:64:14:FC:9E:A1:C9:5D:D7:0C:5B:27:A1:58:8B:FC:00:35:8A:A6:60:0E:69:C1:37:D2:31:25:98:C4"]
+    }
+}]
