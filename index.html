@@ -1385,6 +1385,25 @@
     </div>
   </section>
 
+  <!-- MISSING STATION CALLOUT -->
+  <section style="padding:60px 20px; background:var(--navy-card); border-top:1px solid var(--navy-border); border-bottom:1px solid var(--navy-border);">
+    <div style="max-width:760px; margin:0 auto; text-align:center;">
+      <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,122,0,0.1); border:1px solid rgba(255,122,0,0.25); border-radius:20px; padding:5px 14px; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--green); margin-bottom:18px;">
+        ⛽ Can't find your local station?
+      </div>
+      <h2 style="font-size:clamp(1.5rem,4vw,2rem); font-weight:800; color:var(--text); margin:0 0 14px; line-height:1.25;">It's not the app — it's the dataset</h2>
+      <p style="font-size:1rem; color:var(--muted); line-height:1.65; margin:0 0 20px;">Fuel Finder UK shows every station in the official UK Government CMA fuel price scheme — nothing more, nothing less. Since <strong style="color:var(--text);">2 February 2026</strong>, all major retailers have been <strong style="color:var(--text);">legally required</strong> to report their prices. If a station near you is missing, they haven't reported yet — and that's on them.</p>
+      <p style="font-size:1rem; color:var(--muted); line-height:1.65; margin:0 0 28px;">Unlike crowdsourced price apps, every price in Fuel Finder comes <strong style="color:var(--text);">directly from the retailer</strong> — so it's always up to date and accurate. When a missing station gets added to the scheme, it appears in the app automatically. Together, we can help make the dataset complete by reporting non-compliant stations directly to the CMA.</p>
+      <a href="https://www.gov.uk/guidance/report-an-error-in-fuel-prices-or-forecourt-details" target="_blank" rel="noopener"
+         style="display:inline-flex; align-items:center; gap:9px; background:var(--green); color:#fff; font-size:0.9rem; font-weight:700; font-family:'Inter',sans-serif; padding:13px 24px; border-radius:10px; text-decoration:none; transition:opacity 0.2s;"
+         onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Report a missing station to the CMA — gov.uk
+      </a>
+      <p style="font-size:0.78rem; color:var(--muted); margin:14px 0 0; opacity:0.7;">Non-reporting retailers can face fines of up to 1% of worldwide annual turnover.</p>
+    </div>
+  </section>
+
   <!-- AD-FREE PREMIUM -->
   <section class="highlight-strip" id="premium">
     <div class="highlight-inner">
@@ -1401,11 +1420,21 @@
         </div>
       </div>
       <div class="highlight-phone">
-        <div style="background: var(--navy-card); border: 1px solid rgba(255,122,0,0.3); border-radius: 24px; padding: 36px 28px; text-align: center; max-width: 240px; box-shadow: 0 28px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);">
-          <div style="width: 64px; height: 64px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.8rem; box-shadow: 0 0 30px rgba(255,122,0,0.4);">✓</div>
-          <div style="font-size: 1.2rem; font-weight: 800; color: var(--text); margin-bottom: 10px; letter-spacing: -0.01em;">Premium Unlocked!</div>
-          <div style="font-size: 0.82rem; color: var(--muted); line-height: 1.6; margin-bottom: 20px;">Thank you for your support.<br>Fuel Finder UK is now ad-free.</div>
-          <a href="https://play.google.com/store/apps/details?id=com.fuelprices.live&pcampaignid=web_share" target="_blank" rel="noopener" style="display:block; background:var(--green); color:#050e0b; font-weight:700; font-size:0.85rem; padding:12px 20px; border-radius:10px; text-decoration:none; transition:all 0.2s; box-shadow:0 0 20px rgba(255,122,0,0.3);">Get it on Google Play</a>
+        <div style="background: var(--navy-card); border: 1px solid rgba(255,122,0,0.3); border-radius: 24px; padding: 28px 24px; text-align: center; max-width: 260px; box-shadow: 0 28px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);">
+          <div style="font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:14px;">What you unlock</div>
+          <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:20px; text-align:left;">
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.04); border:1px solid var(--navy-border); border-radius:10px; padding:10px 12px;">
+              <span style="font-size:1rem; flex-shrink:0;">📢</span>
+              <span style="font-size:0.8rem; color:var(--muted); text-decoration:line-through;">Ads in the app</span>
+            </div>
+            <div style="display:flex; align-items:center; justify-content:center; font-size:0.7rem; color:var(--muted); letter-spacing:0.05em;">▼ pay once to unlock</div>
+            <div style="display:flex; align-items:center; gap:10px; background:var(--green-dim); border:1px solid rgba(255,122,0,0.3); border-radius:10px; padding:10px 12px;">
+              <span style="font-size:1rem; flex-shrink:0;">🚫</span>
+              <span style="font-size:0.8rem; color:var(--text); font-weight:600;">No ads — ever again</span>
+            </div>
+          </div>
+          <div style="font-size:0.72rem; color:var(--muted); line-height:1.5; margin-bottom:18px;">One-time purchase inside the app.<br>No subscription. No hidden costs.</div>
+          <a href="https://play.google.com/store/apps/details?id=com.fuelprices.live&pcampaignid=web_share" target="_blank" rel="noopener" style="display:block; background:var(--green); color:#050e0b; font-weight:800; font-size:0.88rem; padding:13px 20px; border-radius:10px; text-decoration:none; box-shadow:0 0 20px rgba(255,122,0,0.35); letter-spacing:-0.01em;">Remove Ads — Get the App →</a>
         </div>
       </div>
     </div>
@@ -1437,6 +1466,43 @@
     </div>
     <div class="cma-quote">
       <strong>The bottom line:</strong> Having access to accurate, up-to-date fuel prices helps you make better decisions at the pump. This app puts that information in your hands — for free, with no sign-up, using the same official data published by the UK Government.
+    </div>
+
+    <!-- ENFORCEMENT CALLOUT -->
+    <div style="max-width:780px; margin:28px auto 0; background:var(--navy-card); border:1px solid rgba(255,122,0,0.25); border-left:4px solid var(--green); border-radius:12px; padding:20px 24px;">
+      <div style="display:flex; align-items:flex-start; gap:14px;">
+        <div style="font-size:1.4rem; line-height:1; padding-top:2px;">⚠️</div>
+        <div>
+          <div style="font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--green); margin-bottom:6px;">Missing stations &amp; non-compliance</div>
+          <p style="margin:0 0 8px; font-size:0.9rem; color:var(--text); line-height:1.55;">Since <strong>2 February 2026</strong>, all major UK fuel retailers are <strong>legally required</strong> to report their prices to the CMA scheme. At launch, around <strong>1 in 4 forecourts</strong> were still missing. Fines for non-compliance can reach up to <strong style="color:var(--green);">1% of worldwide annual turnover</strong>, or <strong style="color:var(--green);">5% per day</strong> — rising to <strong style="color:var(--green);">30%</strong> for serious breaches.</p>
+          <p style="margin:0; font-size:0.88rem; color:var(--muted);">If your local station isn't in the app, they may not be reporting. You can flag this directly to the CMA — see the link below.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GOV.UK LINKS -->
+    <div style="max-width:780px; margin:32px auto 0; display:flex; flex-wrap:wrap; gap:12px; justify-content:center;">
+      <a href="https://www.gov.uk/guidance/access-fuel-price-data" target="_blank" rel="noopener"
+         style="display:inline-flex; align-items:center; gap:8px; background:var(--navy-card); border:1px solid var(--navy-border); border-radius:10px; padding:11px 18px; text-decoration:none; color:var(--muted); font-size:0.82rem; font-weight:500; font-family:'Inter',sans-serif; transition:all 0.2s;"
+         onmouseover="this.style.borderColor='rgba(255,122,0,0.35)';this.style.color='var(--green)'"
+         onmouseout="this.style.borderColor='var(--navy-border)';this.style.color='var(--muted)'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        CMA Fuel Price Data — gov.uk
+      </a>
+      <a href="https://www.gov.uk/government/collections/road-fuel-price-data-scheme" target="_blank" rel="noopener"
+         style="display:inline-flex; align-items:center; gap:8px; background:var(--navy-card); border:1px solid var(--navy-border); border-radius:10px; padding:11px 18px; text-decoration:none; color:var(--muted); font-size:0.82rem; font-weight:500; font-family:'Inter',sans-serif; transition:all 0.2s;"
+         onmouseover="this.style.borderColor='rgba(255,122,0,0.35)';this.style.color='var(--green)'"
+         onmouseout="this.style.borderColor='var(--navy-border)';this.style.color='var(--muted)'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Fuel Finder Scheme — gov.uk
+      </a>
+      <a href="https://www.gov.uk/guidance/report-an-error-in-fuel-prices-or-forecourt-details" target="_blank" rel="noopener"
+         style="display:inline-flex; align-items:center; gap:8px; background:var(--navy-card); border:1px solid rgba(255,122,0,0.3); border-radius:10px; padding:11px 18px; text-decoration:none; color:var(--green); font-size:0.82rem; font-weight:600; font-family:'Inter',sans-serif; transition:all 0.2s;"
+         onmouseover="this.style.borderColor='rgba(255,122,0,0.6)';this.style.background='rgba(255,122,0,0.08)'"
+         onmouseout="this.style.borderColor='rgba(255,122,0,0.3)';this.style.background='var(--navy-card)'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Report a Missing Station — gov.uk
+      </a>
     </div>
   </section>
 
@@ -1514,6 +1580,23 @@
       <p>Everything you need to know about finding cheap fuel near you.</p>
     </div>
     <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Why is my local petrol station missing from the app?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <p style="margin:0 0 10px;">Fuel Finder UK only shows stations that appear in the official UK Government CMA fuel price dataset. Since <strong style="color:var(--text);">2 February 2026</strong>, all major fuel retailers have been <strong style="color:var(--text);">legally required</strong> to submit their prices to the scheme — yet at launch, roughly <strong style="color:var(--text);">1 in 4 forecourts</strong> were still missing.</p>
+          <p style="margin:0 0 10px;">If a station near you isn't in the app, it means that retailer hasn't reported their prices to the CMA. That's on them, not us — we display every station in the Government dataset, refreshed every 30 minutes.</p>
+          <p style="margin:0 0 14px;"><strong style="color:var(--text);">Non-compliance carries serious fines:</strong> up to <strong style="color:var(--green);">1% of worldwide annual turnover</strong>, or <strong style="color:var(--green);">5% of daily worldwide turnover</strong> per day, or up to <strong style="color:var(--green);">30%</strong> for the most serious breaches. The CMA is currently in an enforcement grace period and has the power to issue penalties directly.</p>
+          <p style="margin:0 0 6px;">Think a station near you should be listed but isn't? You can report concerns directly to the CMA:</p>
+          <a href="https://www.gov.uk/guidance/report-an-error-in-fuel-prices-or-forecourt-details" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;color:var(--green);text-decoration:none;border-bottom:1px solid rgba(255,122,0,0.4);font-size:0.9em;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Report a missing or incorrect station — gov.uk
+          </a>
+        </div>
+      </div>
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
