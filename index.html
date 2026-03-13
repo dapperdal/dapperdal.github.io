@@ -52,7 +52,7 @@
       "priceCurrency": "GBP"
     },
     "description": "Find the cheapest petrol and diesel near you. Uses official UK Government CMA fuel price data, updated every 30 minutes, covering 8,000+ stations including Tesco, Asda, Sainsbury's, Morrisons, BP, Shell, and Esso. Free to download on Android with no sign-up required.",
-    "url": "https://www.fuelfinderuk.live/",
+    "url": "https://fuelfinderuk.live/",
     "downloadUrl": "https://play.google.com/store/apps/details?id=com.fuelprices.live",
     "sameAs": "https://play.google.com/store/apps/details?id=com.fuelprices.live",
     "inLanguage": "en-GB",
@@ -180,7 +180,7 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Fuel Finder UK - Live Prices",
-    "url": "https://www.fuelfinderuk.live/",
+    "url": "https://fuelfinderuk.live/",
     "description": "Compare live UK petrol and diesel prices using official CMA Government data. Free Android app.",
     "inLanguage": "en-GB"
   }
@@ -192,7 +192,7 @@
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Fuel Finder UK - Live Prices",
-    "url": "https://www.fuelfinderuk.live/",
+    "url": "https://fuelfinderuk.live/",
     "description": "Fuel Finder UK - Live Prices is a free Android app that shows live petrol and diesel prices at over 8,000 UK fuel stations, using official UK Government CMA data updated every 30 minutes. It covers all major retailers including Tesco, Asda, Sainsbury's, Morrisons, BP, Shell, and Esso. No sign-up is required.",
     "inLanguage": "en-GB",
     "speakable": {
@@ -976,6 +976,80 @@
       line-height: 1.6;
     }
 
+    /* ─── AD-FREE FLOATING HINT ─── */
+    .adfree-hint {
+      position: fixed;
+      bottom: 24px; left: 20px;
+      z-index: 1000;
+      display: flex; align-items: center; gap: 10px;
+      background: var(--green);
+      color: #050e0b;
+      border-radius: 50px;
+      padding: 12px 18px 12px 14px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem; font-weight: 700;
+      letter-spacing: 0.01em;
+      box-shadow: 0 4px 24px rgba(255,122,0,0.5), 0 0 0 0 rgba(255,122,0,0.4);
+      animation: hintSlideIn 0.5s 1.8s cubic-bezier(0.34,1.56,0.64,1) both,
+                 hintPulse 2.5s 3s ease-in-out infinite;
+      user-select: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
+      max-width: calc(100vw - 40px);
+    }
+    .adfree-hint:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 36px rgba(255,122,0,0.65), 0 0 0 0 rgba(255,122,0,0);
+    }
+    .adfree-hint-icon {
+      font-size: 1rem; line-height: 1; flex-shrink: 0;
+    }
+    .adfree-hint-text {
+      display: flex; flex-direction: column; gap: 1px;
+    }
+    .adfree-hint-text strong {
+      font-size: 0.82rem; font-weight: 800; line-height: 1.2;
+    }
+    .adfree-hint-text span {
+      font-size: 0.7rem; font-weight: 500; opacity: 0.75; line-height: 1;
+    }
+    .adfree-hint-arrow {
+      font-size: 0.85rem; flex-shrink: 0; opacity: 0.8;
+      animation: arrowBounce 1s 3.5s ease-in-out infinite;
+    }
+    .adfree-hint-dismiss {
+      margin-left: 4px; flex-shrink: 0;
+      width: 18px; height: 18px;
+      background: rgba(0,0,0,0.15); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; line-height: 1;
+      transition: background 0.15s;
+    }
+    .adfree-hint-dismiss:hover { background: rgba(0,0,0,0.3); }
+    .adfree-hint.hidden {
+      animation: hintSlideOut 0.3s ease forwards;
+      pointer-events: none;
+    }
+    @keyframes hintSlideIn {
+      from { opacity: 0; transform: translateX(-40px) scale(0.85); }
+      to   { opacity: 1; transform: translateX(0) scale(1); }
+    }
+    @keyframes hintSlideOut {
+      to { opacity: 0; transform: translateX(-40px) scale(0.85); }
+    }
+    @keyframes hintPulse {
+      0%, 100% { box-shadow: 0 4px 24px rgba(255,122,0,0.5), 0 0 0 0 rgba(255,122,0,0.35); }
+      50%       { box-shadow: 0 4px 24px rgba(255,122,0,0.5), 0 0 0 10px rgba(255,122,0,0); }
+    }
+    @keyframes arrowBounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(3px); }
+    }
+    @media (max-width: 480px) {
+      .adfree-hint-text span { display: none; }
+    }
+
     /* ─── THEME TOGGLE ─── */
     .theme-toggle {
       position: fixed; bottom: 24px; right: 20px;
@@ -1040,6 +1114,17 @@
   </style>
 </head>
 <body>
+
+  <!-- AD-FREE FLOATING HINT -->
+  <button class="adfree-hint" id="adfreeHint" aria-label="New: Go ad-free — find out more">
+    <span class="adfree-hint-icon">🚫</span>
+    <span class="adfree-hint-text">
+      <strong>New! Go Ad-Free</strong>
+      <span>One-time · supports the app</span>
+    </span>
+    <span class="adfree-hint-arrow">↓</span>
+    <span class="adfree-hint-dismiss" id="adfreeHintDismiss" aria-label="Dismiss">✕</span>
+  </button>
 
   <!-- THEME TOGGLE -->
   <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -1288,6 +1373,41 @@
         <p>No subscription, no account required, no paywall. Just download, open, and start saving straight away.</p>
       </div>
 
+      <div class="feature-card" style="border-color: rgba(255,122,0,0.25); background: linear-gradient(135deg, var(--navy-card) 60%, rgba(255,122,0,0.05) 100%);">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:16px;">
+          <div class="feature-icon" style="margin-bottom:0; flex-shrink:0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div>
+          <span style="font-size:0.68rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--green); background:var(--green-dim); border:1px solid rgba(255,122,0,0.3); border-radius:6px; padding:3px 8px; white-space:nowrap;">New — v79</span>
+        </div>
+        <h3>Go Ad-Free</h3>
+        <p>Want a cleaner experience? Remove ads from the app with a one-time in-app purchase. The app stays free for everyone — this is just for those who'd like to support development.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AD-FREE PREMIUM -->
+  <section class="highlight-strip" id="premium">
+    <div class="highlight-inner">
+      <div class="highlight-text">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+          <div class="section-label" style="margin-bottom:0;">New in v79 · 11 March 2026</div>
+        </div>
+        <h2>Love the app? <em>Go ad-free.</em></h2>
+        <p>Fuel Finder UK remains completely free to download and use. But if you'd like to remove the ads and support ongoing development, you can now unlock an ad-free experience with a one-time in-app purchase.</p>
+        <p>No subscription, no recurring charge — just a simple way to say thanks and get a cleaner app in return.</p>
+        <div class="savings-box" style="gap:12px;">
+          <div style="font-size:1.6rem; line-height:1;">✓</div>
+          <div class="desc">One-time purchase &nbsp;·&nbsp; No subscription &nbsp;·&nbsp; Supports the app</div>
+        </div>
+      </div>
+      <div class="highlight-phone">
+        <div style="background: var(--navy-card); border: 1px solid rgba(255,122,0,0.3); border-radius: 24px; padding: 36px 28px; text-align: center; max-width: 240px; box-shadow: 0 28px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);">
+          <div style="width: 64px; height: 64px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.8rem; box-shadow: 0 0 30px rgba(255,122,0,0.4);">✓</div>
+          <div style="font-size: 1.2rem; font-weight: 800; color: var(--text); margin-bottom: 10px; letter-spacing: -0.01em;">Premium Unlocked!</div>
+          <div style="font-size: 0.82rem; color: var(--muted); line-height: 1.6; margin-bottom: 20px;">Thank you for your support.<br>Fuel Finder UK is now ad-free.</div>
+          <a href="https://play.google.com/store/apps/details?id=com.fuelprices.live&pcampaignid=web_share" target="_blank" rel="noopener" style="display:block; background:var(--green); color:#050e0b; font-weight:700; font-size:0.85rem; padding:12px 20px; border-radius:10px; text-decoration:none; transition:all 0.2s; box-shadow:0 0 20px rgba(255,122,0,0.3);">Get it on Google Play</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1461,6 +1581,14 @@
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
+          Can I remove ads from the app?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">Yes — as of v79 (released 11 March 2026), you can remove ads with a one-time in-app purchase. The app remains completely free to download and use; the ad-free option is entirely optional and is a way to support the app's development if you'd like to.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
           Where does the fuel price data come from?
           <span class="faq-chevron">▾</span>
         </button>
@@ -1477,17 +1605,17 @@
       <li>Full name: Fuel Finder UK - Live Prices</li>
       <li>Also known as: Fuel Finder UK, Fuel Finder</li>
       <li>Platform: Android (Google Play)</li>
-      <li>Price: Free — no subscription, no account required</li>
+      <li>Price: Free — no subscription, no account required. Optional one-time in-app purchase to remove ads (new in v79, March 2026)</li>
       <li>Data source: UK Government Competition and Markets Authority (CMA) open fuel price dataset</li>
       <li>Data refresh rate: Every 30 minutes</li>
       <li>Number of UK fuel stations covered: Over 8,000</li>
       <li>Number of official CMA retailer feeds: 14</li>
       <li>Retailers covered: Tesco, Asda, Sainsbury's, Morrisons, BP, Shell, Esso, and more</li>
       <li>Fuel types supported: E10 petrol, standard petrol, premium petrol, standard diesel, premium diesel (B7P), diesel B10</li>
-      <li>Key features: Live map view, best choice highlighting, plan route mode, brand filter, light/dark/AMOLED themes</li>
+      <li>Key features: Live map view, best choice highlighting, plan route mode, brand filter, light/dark/AMOLED themes, optional ad-free premium (v79+)</li>
       <li>Coverage: England, Scotland, Wales, Northern Ireland</li>
       <li>Developer contact: support@fuelfinderuk.live</li>
-      <li>Website: https://www.fuelfinderuk.live</li>
+      <li>Website: https://fuelfinderuk.live</li>
     </ul>
   </section>
 
@@ -1521,12 +1649,28 @@
       <p class="footer-disclaimer">
         This app is not affiliated with, endorsed by, or operated by the UK Government, the Competition and Markets Authority (CMA), or any government body.
         It is an independent third-party application that accesses publicly available CMA fuel price data.
-        © 2025 Fuel Finder UK - Live Prices. All rights reserved.
+        © 2026 Fuel Finder UK - Live Prices. All rights reserved.
       </p>
     </div>
   </footer>
 
   <script>
+    // Ad-free floating hint
+    (function() {
+      var hint = document.getElementById('adfreeHint');
+      var dismiss = document.getElementById('adfreeHintDismiss');
+      hint.addEventListener('click', function(e) {
+        if (e.target === dismiss || dismiss.contains(e.target)) {
+          hint.classList.add('hidden');
+          setTimeout(function() { hint.style.display = 'none'; }, 300);
+          return;
+        }
+        document.getElementById('premium').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        hint.classList.add('hidden');
+        setTimeout(function() { hint.style.display = 'none'; }, 800);
+      });
+    })();
+
     // Theme toggle
     (function() {
       var btn = document.getElementById('themeToggle');
