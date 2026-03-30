@@ -1,2 +1,1 @@
 google.com, pub-3438880655012999, DIRECT, f08c47fec0942fa0
-apple.com, 6760751440, DIRECT, 6006ae95edecc1f1
