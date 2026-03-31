@@ -119,7 +119,7 @@
         "name": "What is Community Reporting?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Community Reporting is a feature on the Android version of Fuel Finder UK that lets drivers report real-time issues at fuel stations — such as a station being out of petrol or diesel, or long queue times at the pump. These reports are shown to other users so they can avoid problem stations and plan smarter fill-ups."
+          "text": "Community Reporting is a feature in Fuel Finder UK on both Android and iOS that lets drivers report real-time issues at fuel stations — such as a station being out of petrol or diesel, or long queue times at the pump. These reports are shown to other users so they can avoid problem stations and plan smarter fill-ups."
         }
       },
       {
@@ -722,6 +722,68 @@
       text-align: center; color: var(--text-muted); font-size: 0.85rem;
       margin-top: -20px; margin-bottom: 20px;
     }
+
+    /* ===== iOS UPDATE ANNOUNCEMENT ===== */
+    .ios-update-section {
+      background: linear-gradient(180deg, var(--bg-primary), var(--bg-secondary));
+      position: relative; overflow: hidden;
+    }
+    .ios-update-header { text-align: center; max-width: 700px; margin: 0 auto 48px; }
+    .ios-update-header p { color: var(--text-secondary); font-size: 1.1rem; margin-top: 16px; line-height: 1.7; }
+    .ios-phone-grid {
+      display: flex; justify-content: center; gap: 28px; flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .ios-phone-item {
+      flex: 0 0 220px; text-align: center;
+    }
+    .ios-phone-item img {
+      width: 100%; border-radius: var(--radius-lg);
+      filter: drop-shadow(0 16px 48px rgba(0,0,0,0.45));
+      transition: transform 0.3s ease;
+    }
+    .ios-phone-item:hover img { transform: translateY(-6px); }
+    .ios-phone-item .caption {
+      margin-top: 14px; font-size: 0.85rem; font-weight: 600;
+      color: var(--text-secondary);
+    }
+    .ios-ipad-wrap {
+      max-width: 720px; margin: 0 auto; text-align: center;
+    }
+    .ios-ipad-wrap img {
+      width: 100%; border-radius: var(--radius-lg);
+      filter: drop-shadow(0 20px 60px rgba(0,0,0,0.4));
+      border: 1px solid var(--glass-border);
+    }
+    .ios-ipad-label {
+      margin-top: 16px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500;
+    }
+
+    @media (max-width: 900px) {
+      .ios-phone-item { flex: 0 0 160px; }
+    }
+    @media (max-width: 500px) {
+      .ios-phone-item { flex: 0 0 140px; }
+      .ios-phone-grid { gap: 16px; }
+    }
+
+    /* ===== PLATFORM TABS FOR SHOWCASE ===== */
+    .platform-tabs {
+      display: flex; justify-content: center; gap: 8px; margin-bottom: 32px;
+    }
+    .platform-tab {
+      padding: 10px 28px; border-radius: 60px; font-size: 0.9rem; font-weight: 600;
+      background: var(--glass); border: 1px solid var(--glass-border);
+      color: var(--text-secondary); cursor: pointer; transition: all 0.25s;
+      font-family: var(--font);
+    }
+    .platform-tab:hover { background: var(--glass-highlight); color: var(--text-primary); }
+    .platform-tab.active {
+      background: var(--gradient-hero); color: #fff; border-color: transparent;
+      box-shadow: 0 2px 16px var(--accent-glow);
+    }
+    .platform-panel { display: none; }
+    .platform-panel.active { display: block; }
   </style>
 </head>
 <body>
@@ -735,6 +797,7 @@
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#features">Features</a></li>
+      <li><a href="#ios-update">iOS</a></li>
       <li><a href="#my-cars">My Cars</a></li>
       <li><a href="#android-auto">Android Auto</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -834,7 +897,7 @@
           UK Government CMA Dataset
         </div>
         <h2>Powered by <span class="gradient-text">Official Data</span></h2>
-        <p class="about-geo">Fuel Finder UK uses the UK Government's Competition and Markets Authority (CMA) open fuel price dataset. All major fuel retailers — including Tesco, Asda, Sainsbury's, Morrisons, BP, Shell, and Esso — are legally required to submit prices to this scheme. Prices are refreshed every 30 minutes from 14 official retailer data feeds, currently covering over 6,000 petrol stations across England, Scotland, Wales, and Northern Ireland. The app is completely free, requires no account, and works on both Android and iOS. Community Reporting (Android) lets drivers flag out-of-fuel stations and queue times in real time.</p>
+        <p class="about-geo">Fuel Finder UK uses the UK Government's Competition and Markets Authority (CMA) open fuel price dataset. All major fuel retailers — including Tesco, Asda, Sainsbury's, Morrisons, BP, Shell, and Esso — are legally required to submit prices to this scheme. Prices are refreshed every 30 minutes from 14 official retailer data feeds, currently covering over 6,000 petrol stations across England, Scotland, Wales, and Northern Ireland. The app is completely free, requires no account, and works on both Android and iOS (iPhone and iPad). Community Reporting lets drivers flag out-of-fuel stations and queue times in real time on both platforms.</p>
       </div>
       <div class="spotlight-visual">
         <img class="spotlight-img" src="screenshots/03_uk_coverage.png" alt="UK coverage showing government CMA data" loading="lazy" />
@@ -882,7 +945,7 @@
 
       <!-- Community -->
       <div class="glass-card bento-card">
-        <span class="bento-tag new">New — Android</span>
+        <span class="bento-tag new">Android &amp; iOS</span>
         <div class="bento-icon green">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
         </div>
@@ -986,7 +1049,7 @@
     <div class="spotlight-grid reverse">
       <div class="spotlight-content animate-in">
         <span class="section-label">Community</span>
-        <span class="bento-tag new" style="display:inline-block;margin-bottom:16px;">Android</span>
+        <span class="bento-tag new" style="display:inline-block;margin-bottom:16px;">Android &amp; iOS</span>
         <h2>Real-Time <span class="gradient-text">Community Reports</span></h2>
         <p>Powered by drivers like you. Report outages, queues, and fuel issues at any station — and see what others have flagged before you drive there.</p>
         <ul class="spotlight-list">
@@ -1004,7 +1067,7 @@
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            iOS coming soon
+            Now available on both Android and iOS
           </li>
         </ul>
       </div>
@@ -1085,6 +1148,51 @@
   </div>
 </section>
 
+<!-- ===== iOS UPDATE ANNOUNCEMENT ===== -->
+<section class="ios-update-section" id="ios-update">
+  <div class="orb orb-blue" style="width:500px;height:500px;top:-120px;left:-100px;"></div>
+  <div class="orb orb-orange" style="width:350px;height:350px;bottom:-80px;right:-60px;"></div>
+  <div class="container">
+    <div class="ios-update-header animate-in">
+      <span class="section-label">New on iOS</span>
+      <span class="bento-tag new" style="display:inline-block;margin-bottom:16px;">Just Updated</span>
+      <h2>The <span class="gradient-text">iOS Experience</span> Just Got Bigger</h2>
+      <p>The latest iOS update brings the features Android users love — Community Reports, full station details with facilities, and My Car with MOT &amp; tax tracking — all built natively for iPhone and iPad.</p>
+    </div>
+
+    <div class="ios-phone-grid animate-in">
+      <div class="ios-phone-item">
+        <img src="screenshots/ios-iphone/01_map_view.png" alt="Fuel Finder UK iOS - live fuel price map" loading="lazy" />
+        <div class="caption">Live Price Map</div>
+      </div>
+      <div class="ios-phone-item">
+        <img src="screenshots/ios-iphone/05_community_reports.png" alt="Fuel Finder UK iOS - community reports" loading="lazy" />
+        <div class="caption">Community Reports</div>
+      </div>
+      <div class="ios-phone-item">
+        <img src="screenshots/ios-iphone/06_my_car.png" alt="Fuel Finder UK iOS - My Car with MOT and tax" loading="lazy" />
+        <div class="caption">My Car</div>
+      </div>
+      <div class="ios-phone-item">
+        <img src="screenshots/ios-iphone/02_list_view.png" alt="Fuel Finder UK iOS - best choice list view" loading="lazy" />
+        <div class="caption">Best Choice</div>
+      </div>
+    </div>
+
+    <div class="ios-ipad-wrap animate-in">
+      <img src="screenshots/ios-ipad/01_map_view.png" alt="Fuel Finder UK on iPad - full map view" loading="lazy" />
+      <p class="ios-ipad-label">Also available on iPad — see the full UK fuel map on a bigger screen.</p>
+    </div>
+
+    <div style="text-align:center;margin-top:40px;" class="animate-in">
+      <a href="https://apps.apple.com/gb/app/fuel-finder-uk-live-prices/id6760751440" class="btn btn-primary" aria-label="Download on the App Store">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Download on the App Store
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ===== PREMIUM / AD-FREE ===== -->
 <section class="premium-section" id="premium">
   <div class="container" style="padding-top:80px;padding-bottom:80px;">
@@ -1116,19 +1224,54 @@
     <div class="showcase-header animate-in">
       <span class="section-label">Screenshots</span>
       <h2>See It in <span class="gradient-text">Action</span></h2>
-      <p>Scroll through to explore the full Fuel Finder UK experience on Android and iOS.</p>
+      <p>Explore the full Fuel Finder UK experience on both platforms.</p>
     </div>
-    <p class="scroll-hint">Drag or swipe to scroll &rarr;</p>
-    <div class="showcase-scroll" id="showcaseScroll">
-      <div class="showcase-item"><img src="screenshots/06_compare_prices.png" alt="Best choice fuel prices" loading="lazy" /></div>
-      <div class="showcase-item"><img src="screenshots/05_station_details.png" alt="Full station details and price reporting" loading="lazy" /></div>
-      <div class="showcase-item"><img src="screenshots/03_uk_coverage.png" alt="UK coverage with CMA data" loading="lazy" /></div>
-      <div class="showcase-item"><img src="screenshots/04_my_cars.png" alt="My Cars feature" loading="lazy" /></div>
-      <div class="showcase-item"><img src="screenshots/07_route_planning.png" alt="Route planning" loading="lazy" /></div>
-      <div class="showcase-item"><img src="screenshots/02_community_reports.png" alt="Community reports" loading="lazy" /></div>
-      <div class="showcase-item"><img src="screenshots/01_hero.png" alt="Customisation and themes" loading="lazy" /></div>
-      <div class="showcase-item"><img src="screenshots/08_android_auto_premium.png" alt="Android Auto" loading="lazy" /></div>
+
+    <div class="platform-tabs">
+      <button class="platform-tab active" data-target="panel-android" onclick="switchPlatform(this)">Android</button>
+      <button class="platform-tab" data-target="panel-ios-phone" onclick="switchPlatform(this)">iPhone</button>
+      <button class="platform-tab" data-target="panel-ios-ipad" onclick="switchPlatform(this)">iPad</button>
     </div>
+
+    <!-- Android Panel -->
+    <div class="platform-panel active" id="panel-android">
+      <p class="scroll-hint">Drag or swipe to scroll &rarr;</p>
+      <div class="showcase-scroll" id="showcaseScroll">
+        <div class="showcase-item"><img src="screenshots/06_compare_prices.png" alt="Best choice fuel prices" loading="lazy" /></div>
+        <div class="showcase-item"><img src="screenshots/05_station_details.png" alt="Full station details and price reporting" loading="lazy" /></div>
+        <div class="showcase-item"><img src="screenshots/03_uk_coverage.png" alt="UK coverage with CMA data" loading="lazy" /></div>
+        <div class="showcase-item"><img src="screenshots/04_my_cars.png" alt="My Cars feature" loading="lazy" /></div>
+        <div class="showcase-item"><img src="screenshots/07_route_planning.png" alt="Route planning" loading="lazy" /></div>
+        <div class="showcase-item"><img src="screenshots/02_community_reports.png" alt="Community reports" loading="lazy" /></div>
+        <div class="showcase-item"><img src="screenshots/01_hero.png" alt="Customisation and themes" loading="lazy" /></div>
+        <div class="showcase-item"><img src="screenshots/08_android_auto_premium.png" alt="Android Auto" loading="lazy" /></div>
+      </div>
+    </div>
+
+    <!-- iPhone Panel -->
+    <div class="platform-panel" id="panel-ios-phone">
+      <p class="scroll-hint">Drag or swipe to scroll &rarr;</p>
+      <div class="showcase-scroll" id="showcaseScrollIOS">
+        <div class="showcase-item"><img src="screenshots/ios-iphone/01_map_view.png" alt="iOS - Live fuel price map" loading="lazy" /></div>
+        <div class="showcase-item"><img src="screenshots/ios-iphone/02_list_view.png" alt="iOS - Best choice list view" loading="lazy" /></div>
+        <div class="showcase-item"><img src="screenshots/ios-iphone/03_station_detail.png" alt="iOS - Station detail with prices" loading="lazy" /></div>
+        <div class="showcase-item"><img src="screenshots/ios-iphone/04_station_features.png" alt="iOS - Station facilities and features" loading="lazy" /></div>
+        <div class="showcase-item"><img src="screenshots/ios-iphone/05_community_reports.png" alt="iOS - Community reports" loading="lazy" /></div>
+        <div class="showcase-item"><img src="screenshots/ios-iphone/06_my_car.png" alt="iOS - My Car with MOT and tax" loading="lazy" /></div>
+      </div>
+    </div>
+
+    <!-- iPad Panel -->
+    <div class="platform-panel" id="panel-ios-ipad">
+      <p class="scroll-hint">Drag or swipe to scroll &rarr;</p>
+      <div class="showcase-scroll" id="showcaseScrollIPad">
+        <div class="showcase-item" style="flex:0 0 480px;"><img src="screenshots/ios-ipad/01_map_view.png" alt="iPad - Full UK fuel price map" loading="lazy" /></div>
+        <div class="showcase-item" style="flex:0 0 480px;"><img src="screenshots/ios-ipad/02_list_view.png" alt="iPad - Station list view" loading="lazy" /></div>
+        <div class="showcase-item" style="flex:0 0 480px;"><img src="screenshots/ios-ipad/04_my_car.png" alt="iPad - My Car feature" loading="lazy" /></div>
+        <div class="showcase-item" style="flex:0 0 480px;"><img src="screenshots/ios-ipad/03_settings.png" alt="iPad - Settings" loading="lazy" /></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1208,7 +1351,7 @@
 
       <details class="faq-item">
         <summary class="faq-q">What is Community Reporting?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-        <div class="faq-a">Community Reporting (Android) lets drivers report real-time issues at fuel stations — like being out of petrol, queue times, or other problems. Reports are voted on by the community and shown to all users. iOS support is coming soon.</div>
+        <div class="faq-a">Community Reporting lets drivers report real-time issues at fuel stations — like being out of petrol, queue times, or other problems. Reports are voted on by the community and shown to all users. Available on both Android and iOS.</div>
       </details>
 
       <details class="faq-item">
@@ -1331,23 +1474,34 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
 
-  // Drag-to-scroll for showcase
-  const showcase = document.getElementById('showcaseScroll');
-  if (showcase) {
+  // Drag-to-scroll helper
+  function enableDragScroll(el) {
+    if (!el) return;
     let isDown = false, startX, scrollLeft;
-    showcase.addEventListener('mousedown', e => {
-      isDown = true; showcase.style.cursor = 'grabbing';
-      startX = e.pageX - showcase.offsetLeft;
-      scrollLeft = showcase.scrollLeft;
+    el.addEventListener('mousedown', e => {
+      isDown = true; el.style.cursor = 'grabbing';
+      startX = e.pageX - el.offsetLeft;
+      scrollLeft = el.scrollLeft;
     });
-    showcase.addEventListener('mouseleave', () => { isDown = false; showcase.style.cursor = 'grab'; });
-    showcase.addEventListener('mouseup', () => { isDown = false; showcase.style.cursor = 'grab'; });
-    showcase.addEventListener('mousemove', e => {
+    el.addEventListener('mouseleave', () => { isDown = false; el.style.cursor = 'grab'; });
+    el.addEventListener('mouseup', () => { isDown = false; el.style.cursor = 'grab'; });
+    el.addEventListener('mousemove', e => {
       if (!isDown) return; e.preventDefault();
-      const x = e.pageX - showcase.offsetLeft;
-      showcase.scrollLeft = scrollLeft - (x - startX) * 1.5;
+      const x = e.pageX - el.offsetLeft;
+      el.scrollLeft = scrollLeft - (x - startX) * 1.5;
     });
-    showcase.style.cursor = 'grab';
+    el.style.cursor = 'grab';
+  }
+  enableDragScroll(document.getElementById('showcaseScroll'));
+  enableDragScroll(document.getElementById('showcaseScrollIOS'));
+  enableDragScroll(document.getElementById('showcaseScrollIPad'));
+
+  // Platform tab switching
+  function switchPlatform(btn) {
+    document.querySelectorAll('.platform-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.platform-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.target).classList.add('active');
   }
 
   // Nav scroll effect
