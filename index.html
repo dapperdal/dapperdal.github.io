@@ -420,9 +420,10 @@
     }
     .btn-ghost:hover { background: var(--glass-highlight); border-color: rgba(255,255,255,0.2); }
     .store-badges { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
-    .store-badges a { transition: transform 0.2s ease; }
+    .store-badges a { transition: transform 0.2s ease; display: inline-flex; align-items: center; height: 52px; }
     .store-badges a:hover { transform: scale(1.05); }
-    .store-badges img { height: 52px; border-radius: 10px; }
+    .store-badges img { height: 100%; width: auto; border-radius: 10px; object-fit: contain; }
+    .store-badges img[alt*="App Store"] { height: 46px; }
 
     /* ===== NAVIGATION ===== */
     .nav {
@@ -1459,10 +1460,10 @@
       <p>Download Fuel Finder UK free on Android or iOS. No account needed — just open and save.</p>
       <div class="store-badges" style="justify-content:center;">
         <a href="https://play.google.com/store/apps/details?id=com.fuelprices.live" aria-label="Get it on Google Play">
-          <img src="screenshots/google-play-badge.png" alt="Get it on Google Play" height="56" />
+          <img src="screenshots/google-play-badge.png" alt="Get it on Google Play" height="52" />
         </a>
         <a href="https://apps.apple.com/gb/app/fuel-finder-uk-live-prices/id6760751440" aria-label="Download on the App Store">
-          <img src="app-store-badge.svg" alt="Download on the App Store" height="56" />
+          <img src="app-store-badge.svg" alt="Download on the App Store" height="52" />
         </a>
       </div>
     </div>
