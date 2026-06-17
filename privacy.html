@@ -14,7 +14,7 @@
             color: #333;
             background-color: #f9f9f9;
         }
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             color: #1a1a1a;
         }
         h1 {
@@ -54,6 +54,21 @@
             border-radius: 3px;
             font-family: 'Courier New', monospace;
         }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+            font-size: 0.95em;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
         .important {
             background-color: #fff3cd;
             border-left: 4px solid #ffc107;
@@ -72,138 +87,185 @@
     <h1>Privacy Policy for Fuel Finder UK - Live Prices</h1>
 
     <div class="meta">
-        <p><strong>Effective Date:</strong> March 3, 2026</p>
+        <p><strong>Effective Date:</strong> June 17, 2026</p>
         <p><strong>Developer:</strong> DF Labs</p>
         <p><strong>Contact:</strong> <a href="mailto:support@fuelfinderuk.live">support@fuelfinderuk.live</a></p>
-        <p><strong>Version:</strong> 2</p>
+        <p><strong>Version:</strong> 3</p>
     </div>
 
     <h2>Overview</h2>
-    <p>Fuel Finder UK - Live Prices ("the App") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our mobile application.</p>
+    <p>Fuel Finder UK - Live Prices ("the App", "we", "us") is committed to protecting your privacy. This Privacy Policy explains what information the App handles, how it is used, and who it is shared with. The App does not require an account, sign-up, or login.</p>
+    <p>Most of your information — your saved vehicles, favourites, preferences, and searches — stays on your device. Some features, described below, require data to be sent to UK government services or to our own and third-party servers in order to work. This policy explains exactly when that happens.</p>
 
-    <h2>Information We Collect</h2>
+    <h2>Information We Handle</h2>
 
     <h3>1. Location Data</h3>
     <ul>
-        <li><strong>What We Collect:</strong> Approximate and precise location data from your device</li>
-        <li><strong>Why We Collect It:</strong> To show you fuel prices at petrol stations near your current location</li>
-        <li><strong>How It's Used:</strong> Location data is used only to calculate distances to fuel stations and sort results by proximity</li>
-        <li><strong>Storage:</strong> Location data is NOT stored on our servers. It is processed locally on your device only.</li>
+        <li><strong>What:</strong> Approximate and precise location from your device, and any start/destination you enter for route planning.</li>
+        <li><strong>Why:</strong> To show fuel stations near you, sort them by distance, and (in Plan Route) calculate a driving route and find the cheapest fuel along it.</li>
+        <li><strong>Where it goes:</strong> Sorting stations by distance happens on your device. When you use <strong>Plan Route</strong>, the start and destination coordinates are sent to our server to calculate the route. Map tiles and ads (see below) may allow third parties to infer your approximate location from your IP address.</li>
+        <li><strong>Storage:</strong> We do not store your location history on our servers or build a profile of your movements.</li>
     </ul>
 
-    <h3>2. User Preferences</h3>
+    <h3>2. Vehicle Information (My Cars)</h3>
     <ul>
-        <li><strong>What We Collect:</strong> Your selected fuel type (petrol/diesel/LPG), preferred brands, search radius, and sort preferences</li>
-        <li><strong>Why We Collect It:</strong> To remember your preferences and provide a personalized experience</li>
-        <li><strong>Storage:</strong> Stored locally on your device only. Never transmitted to external servers.</li>
+        <li><strong>What:</strong> The vehicle registration number you choose to enter, and the details returned for it (make, model, fuel type, MOT history, tax and ULEZ status).</li>
+        <li><strong>Why:</strong> To show your vehicle's MOT history, tax and ULEZ status, road tax rate, and to calculate fill costs based on tank size.</li>
+        <li><strong>Where it goes:</strong> When you add or refresh a vehicle, the registration number is sent to the <strong>DVLA Vehicle Enquiry Service</strong> and the <strong>DVSA MOT History service</strong> (both UK government services) to retrieve the vehicle's details. We do not store your registration number or vehicle details on our own servers.</li>
+        <li><strong>Storage:</strong> Returned vehicle details are stored locally on your device and are deleted when you remove the vehicle or uninstall the App.</li>
     </ul>
 
-    <h3>3. Device Information</h3>
+    <h3>3. Community Reports</h3>
     <ul>
-        <li><strong>What We Collect:</strong> Basic device information (iOS version, screen size) for app compatibility</li>
-        <li><strong>Why We Collect It:</strong> To ensure the app works correctly on your device</li>
-        <li><strong>Storage:</strong> Used only during app operation, not stored permanently</li>
+        <li><strong>What:</strong> Reports you choose to submit (for example: out-of-fuel, queue times, closed station, suspected price errors), the station the report relates to, the report time, and your votes on other reports.</li>
+        <li><strong>Why:</strong> To show real-time station status to other drivers and let the community verify reports.</li>
+        <li><strong>Where it goes:</strong> Reports and votes are sent to and stored in our cloud database, hosted on <strong>Google Firebase / Cloud Firestore</strong>, and are visible to other users of the App. Reports are not linked to a name or account (the App has no accounts). A non-identifying random identifier may be used to prevent duplicate voting.</li>
+    </ul>
+
+    <h3>4. User Preferences</h3>
+    <ul>
+        <li><strong>What:</strong> Selected fuel type and grade, preferred brands, search radius, sort order, theme and accent colour, and favourite stations.</li>
+        <li><strong>Storage:</strong> Stored locally on your device only and never sent to our servers.</li>
+    </ul>
+
+    <h3>5. Advertising &amp; Identifiers</h3>
+    <ul>
+        <li><strong>What:</strong> If you consent, your device's advertising identifier (IDFA) and ad-interaction data may be used to show personalised ads. If you do not consent, ads are non-personalised.</li>
+        <li><strong>How we ask:</strong> We use Apple's App Tracking Transparency prompt and, in the UK/EU, a Google-certified consent (UMP) prompt before any tracking or personalised advertising.</li>
+        <li><strong>Provider:</strong> Google AdMob (see Third-Party Services).</li>
+    </ul>
+
+    <h3>6. Device &amp; Diagnostic Information</h3>
+    <ul>
+        <li><strong>What:</strong> Basic technical information (such as iOS version and device type) and your IP address, which is necessarily visible to any server the App contacts.</li>
+        <li><strong>Why:</strong> To deliver content, ensure compatibility, and keep the service secure and reliable.</li>
     </ul>
 
     <h2>How We Use Your Information</h2>
-    <p>We use the collected information to:</p>
     <ol>
-        <li>Find nearby fuel stations based on your location</li>
-        <li>Display fuel prices from official UK government data sources</li>
-        <li>Personalize your experience by remembering your fuel type and brand preferences</li>
-        <li>Improve app performance and fix bugs</li>
+        <li>Find and rank nearby fuel stations based on your location.</li>
+        <li>Display fuel prices sourced from official UK government (CMA) open data.</li>
+        <li>Plan routes and find the cheapest fuel along your journey.</li>
+        <li>Show your vehicle's MOT, tax and ULEZ information in My Cars.</li>
+        <li>Power Community Reports so drivers can share live station status.</li>
+        <li>Remember your preferences and improve app performance.</li>
+        <li>Show advertising (unless you have purchased the ad-free upgrade).</li>
     </ol>
 
     <h2>Data Sharing</h2>
 
-    <h3>We DO NOT:</h3>
+    <h3>We do NOT:</h3>
     <ul>
-        <li>❌ Sell your personal information to third parties</li>
-        <li>❌ Share your location data with advertisers</li>
-        <li>❌ Store your location on external servers</li>
-        <li>❌ Track your movements or create location history</li>
+        <li>❌ Sell your personal information.</li>
+        <li>❌ Create a profile of your movements or location history.</li>
+        <li>❌ Store your vehicle registration number on our own servers.</li>
+        <li>❌ Require an account, name, or email address to use the App.</li>
     </ul>
 
-    <h3>Third-Party Services:</h3>
+    <h3>Third-Party Services</h3>
+    <p>The App relies on the following services. Data is shared with them only to provide the feature described, and each has its own privacy policy:</p>
 
-    <h4>Google Maps Platform</h4>
-    <ul>
-        <li><strong>Used for:</strong> Displaying maps and providing navigation to fuel stations</li>
-        <li><strong>Privacy Policy:</strong> <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
-        <li><strong>What they collect:</strong> Location data when you use maps or navigation features</li>
-    </ul>
+    <table>
+        <tr>
+            <th>Service</th>
+            <th>Used for</th>
+            <th>Data involved</th>
+            <th>Privacy policy</th>
+        </tr>
+        <tr>
+            <td>Apple MapKit</td>
+            <td>Displaying the map</td>
+            <td>Map interactions, approximate location</td>
+            <td><a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a></td>
+        </tr>
+        <tr>
+            <td>CARTO basemaps</td>
+            <td>Dark / AMOLED map tiles</td>
+            <td>IP address, map tile requests</td>
+            <td><a href="https://carto.com/privacy/">carto.com/privacy</a></td>
+        </tr>
+        <tr>
+            <td>Our backend (Cloudflare Workers)</td>
+            <td>Fuel price data and route calculation</td>
+            <td>IP address; route start/destination coordinates when you plan a route</td>
+            <td><a href="https://www.cloudflare.com/privacypolicy/">cloudflare.com/privacypolicy</a></td>
+        </tr>
+        <tr>
+            <td>Google Firebase / Cloud Firestore</td>
+            <td>Storing &amp; sharing Community Reports</td>
+            <td>Report content, station, timestamp, vote identifier</td>
+            <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+        </tr>
+        <tr>
+            <td>DVLA Vehicle Enquiry Service</td>
+            <td>Vehicle lookup in My Cars</td>
+            <td>Vehicle registration number</td>
+            <td><a href="https://www.gov.uk/government/organisations/driver-and-vehicle-licensing-agency/about/personal-information-charter">DVLA privacy</a></td>
+        </tr>
+        <tr>
+            <td>DVSA MOT History service</td>
+            <td>MOT history in My Cars</td>
+            <td>Vehicle registration number</td>
+            <td><a href="https://www.gov.uk/government/organisations/driver-and-vehicle-standards-agency/about/personal-information-charter">DVSA privacy</a></td>
+        </tr>
+        <tr>
+            <td>Google AdMob</td>
+            <td>Advertising</td>
+            <td>Advertising ID, device info, ad interactions</td>
+            <td><a href="https://support.google.com/admob/answer/6128543">AdMob policy</a></td>
+        </tr>
+        <tr>
+            <td>Google User Messaging Platform (UMP)</td>
+            <td>Collecting ad-consent (UK/EU)</td>
+            <td>Consent choices</td>
+            <td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+        </tr>
+    </table>
 
-    <h4>Google AdMob (for advertisements)</h4>
+    <h2>Data Retention</h2>
     <ul>
-        <li><strong>Used for:</strong> Displaying banner advertisements</li>
-        <li><strong>Privacy Policy:</strong> <a href="https://support.google.com/admob/answer/6128543">https://support.google.com/admob/answer/6128543</a></li>
-        <li><strong>What they collect:</strong> Advertising ID, device information, and interactions with ads</li>
-    </ul>
-
-    <h2>Data Security</h2>
-    <p>We implement appropriate security measures to protect your information:</p>
-    <ul>
-        <li>All fuel price data comes from official UK government open data sources</li>
-        <li>Location data is processed locally on your device</li>
-        <li>User preferences are stored securely using iOS's encrypted storage</li>
-        <li>We do not transmit your personal information to external servers</li>
+        <li><strong>On-device data</strong> (preferences, favourites, saved vehicles and their details) stays on your device and is deleted when you remove it in the App or uninstall.</li>
+        <li><strong>Community Reports</strong> you submit are retained in our database and may remain visible to others until they expire or are removed. Because they are not linked to an account, contact us if you need a specific report removed.</li>
+        <li><strong>Vehicle registration numbers</strong> are sent to DVLA/DVSA only to perform a lookup and are not stored on our servers.</li>
     </ul>
 
     <h2>Your Rights and Choices</h2>
 
     <h3>Location Permissions</h3>
-    <p>You can revoke location access at any time through your device Settings → Privacy → Location Services → Fuel Finder UK - Live Prices</p>
-    <p>If you deny location access, you can still search for fuel prices by entering a location manually.</p>
+    <p>You can revoke location access at any time via Settings → Privacy &amp; Security → Location Services → Fuel Finder UK. You can still search by entering a location manually if you deny access.</p>
 
-    <h3>Ad Personalization</h3>
-    <p>You can opt out of personalized ads through your device Settings → Privacy → Apple Advertising</p>
+    <h3>Tracking &amp; Ad Personalisation</h3>
+    <p>You can change tracking permission via Settings → Privacy &amp; Security → Tracking, and opt out of Apple's personalised ads via Settings → Privacy &amp; Security → Apple Advertising. Purchasing the one-time ad-free upgrade removes all ads.</p>
 
     <h3>Data Deletion</h3>
     <ul>
-        <li>All user data is stored locally on your device</li>
-        <li>Uninstalling the app will permanently delete all your preferences and data</li>
-        <li>We do not retain any data after uninstallation</li>
+        <li>Uninstalling the App permanently deletes all data stored on your device.</li>
+        <li>To request removal of a Community Report, email <a href="mailto:support@fuelfinderuk.live">support@fuelfinderuk.live</a>.</li>
     </ul>
 
     <h2>Children's Privacy</h2>
-    <p>This app does not knowingly collect information from children under 13 years of age. The app is intended for general audiences and does not contain age-inappropriate content.</p>
+    <p>The App is intended for a general audience and does not knowingly collect information from children under 13. It contains no age-inappropriate content.</p>
 
-    <h2>Changes to This Privacy Policy</h2>
-    <p>We may update this Privacy Policy from time to time. We will notify you of any changes by:</p>
+    <h2>Legal Basis for Processing (UK GDPR / EU GDPR)</h2>
+    <p>For users in the UK and EU, we rely on the following legal bases:</p>
     <ul>
-        <li>Posting the new Privacy Policy in the app</li>
-        <li>Updating the "Effective Date" at the top of this policy</li>
-    </ul>
-    <p>You are advised to review this Privacy Policy periodically for any changes.</p>
-
-    <h2>Data Sources</h2>
-    <p>This app uses fuel price data from:</p>
-    <ul>
-        <li><strong>UK Government Open Data Scheme</strong> - Official fuel prices published by UK retailers under the CMA (Competition and Markets Authority) open data requirements</li>
-        <li>Data is publicly available and updated every 30 minutes</li>
-    </ul>
-
-    <h2>Legal Basis for Processing (GDPR Compliance)</h2>
-    <p>For users in the UK and EU, we process your data based on:</p>
-    <ul>
-        <li><strong>Legitimate Interest:</strong> To provide you with nearby fuel station information</li>
-        <li><strong>Consent:</strong> Location access requires your explicit permission</li>
-        <li><strong>Contract Performance:</strong> To deliver the app's core functionality</li>
+        <li><strong>Consent:</strong> Location access, App Tracking Transparency, and personalised advertising.</li>
+        <li><strong>Legitimate Interest:</strong> Providing nearby station results, Community Reports, security, and app reliability.</li>
+        <li><strong>Performance of a service you request:</strong> Vehicle (DVLA/DVSA) lookups and route calculation, which run only when you ask for them.</li>
     </ul>
 
     <h2>Your GDPR Rights</h2>
-    <p>If you are located in the UK or EU, you have the right to:</p>
+    <p>If you are in the UK or EU, you have the right to access, correct, delete, restrict or object to processing of your personal data, and to data portability. Because the App holds most data only on your device and uses no accounts, many of these are exercised directly on your device. For anything else, contact <a href="mailto:support@fuelfinderuk.live">support@fuelfinderuk.live</a>. You also have the right to complain to the UK Information Commissioner's Office (ICO).</p>
+
+    <h2>Data Sources</h2>
     <ul>
-        <li>Access your personal data</li>
-        <li>Correct inaccurate data</li>
-        <li>Request deletion of your data</li>
-        <li>Object to data processing</li>
-        <li>Data portability</li>
+        <li><strong>UK Government Open Data Scheme:</strong> Fuel prices published by UK retailers under the Motor Fuel Price (Open Data) Regulations 2025, administered by the Competition and Markets Authority (CMA). Updated approximately every 30 minutes.</li>
     </ul>
-    <p>To exercise these rights, contact us at <a href="mailto:support@fuelfinderuk.live">support@fuelfinderuk.live</a></p>
+
+    <h2>Changes to This Privacy Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Material changes will be reflected by updating the "Effective Date" above and posting the revised policy at this address. Please review it periodically.</p>
 
     <h2>Contact Us</h2>
-    <p>If you have any questions about this Privacy Policy or our data practices, please contact us:</p>
     <ul>
         <li><strong>Email:</strong> <a href="mailto:support@fuelfinderuk.live">support@fuelfinderuk.live</a></li>
         <li><strong>Developer:</strong> DF Labs</li>
@@ -211,9 +273,9 @@
     </ul>
 
     <h2>Acknowledgments</h2>
-    <p>This app uses data provided by the UK Government under the Motor Fuel Price (Open Data) Regulations 2025, administered by the Competition and Markets Authority (CMA).</p>
+    <p>This app uses data provided by the UK Government under the Motor Fuel Price (Open Data) Regulations 2025, administered by the Competition and Markets Authority (CMA). Fuel Finder UK is not affiliated with or endorsed by the UK Government or the CMA.</p>
 
     <hr>
-    <p><strong>Last Updated:</strong> February 3, 2026</p>
+    <p><strong>Last Updated:</strong> June 17, 2026</p>
 </body>
 </html>
