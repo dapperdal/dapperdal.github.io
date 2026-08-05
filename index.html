@@ -743,6 +743,14 @@
     .footer-links { display: flex; gap: 24px; }
     .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
     .footer-links a:hover { color: var(--text-primary); }
+    .footer-studio {
+      display: inline-flex; align-items: center; gap: 10px; padding: 7px 10px;
+      border: 1px solid var(--glass-border); border-radius: 10px;
+      background: rgba(255,255,255,0.96); color: #202124; text-decoration: none;
+    }
+    .footer-studio:hover { border-color: rgba(255,107,0,0.7); }
+    .footer-studio small { color: #65696f; font-size: 0.68rem; line-height: 1.2; }
+    .footer-studio img { width: 116px; height: auto; }
     .footer-copy { color: var(--text-muted); font-size: 0.8rem; text-align: center; width: 100%; margin-top: 16px; }
 
     /* ===== ANIMATIONS ===== */
@@ -1541,7 +1549,11 @@
         <a href="https://apps.apple.com/gb/app/fuel-finder-uk-live-prices/id6760751440">App Store</a>
         <a href="mailto:iiamdarren@gmail.com">Contact</a>
       </div>
-      <p class="footer-copy">&copy; 2025 Fuel Finder UK. Not affiliated with or endorsed by the UK Government or CMA. Fuel price data sourced from the publicly available CMA open dataset.</p>
+      <a class="footer-studio" href="https://iamdarren.com" aria-label="Built by DF Labs">
+        <small>Built by</small>
+        <img src="df-labs-logo.png" alt="DF Labs" width="116" height="28" loading="lazy" />
+      </a>
+      <p class="footer-copy">&copy; 2026 Fuel Finder UK. An independent app by DF Labs. Not affiliated with or endorsed by the UK Government or CMA. Fuel price data sourced from the publicly available CMA open dataset.</p>
     </div>
   </div>
 </footer>
