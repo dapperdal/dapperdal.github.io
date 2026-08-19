@@ -743,14 +743,6 @@
     .footer-links { display: flex; gap: 24px; }
     .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
     .footer-links a:hover { color: var(--text-primary); }
-    .footer-studio {
-      display: inline-flex; align-items: center; gap: 10px; padding: 7px 10px;
-      border: 1px solid var(--glass-border); border-radius: 10px;
-      background: rgba(255,255,255,0.96); color: #202124; text-decoration: none;
-    }
-    .footer-studio:hover { border-color: rgba(255,107,0,0.7); }
-    .footer-studio small { color: #65696f; font-size: 0.68rem; line-height: 1.2; }
-    .footer-studio img { width: 116px; height: auto; }
     .footer-copy { color: var(--text-muted); font-size: 0.8rem; text-align: center; width: 100%; margin-top: 16px; }
 
     /* ===== ANIMATIONS ===== */
@@ -845,6 +837,32 @@
       margin-top: 16px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500;
     }
 
+    /* ===== SIMPLE MODE FLOW ===== */
+    .simple-flow {
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #151923 0%, #202a38 55%, #172b2d 100%);
+    }
+    .simple-flow-header { max-width: 720px; margin: 0 auto 44px; text-align: center; }
+    .simple-flow-header p { color: #b9c5cc; font-size: 1.08rem; line-height: 1.7; margin-top: 16px; }
+    .simple-flow-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+      max-width: 1180px; margin: 0 auto;
+    }
+    .simple-flow-step { min-width: 0; }
+    .simple-flow-step img {
+      display: block; width: 100%; border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 22px 50px rgba(0,0,0,0.32);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .simple-flow-step:hover img { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,0,0,0.42); }
+    .simple-flow-step h3 { color: #fff; font-size: 1rem; margin: 18px 0 6px; }
+    .simple-flow-step p { color: #aebbc3; font-size: 0.9rem; line-height: 1.5; margin: 0; }
+    .simple-flow-platform { display: inline-flex; margin-bottom: 10px; padding: 5px 10px; border-radius: 999px; background: rgba(255,255,255,0.1); color: #ffb38d; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+    .simple-flow-note { max-width: 760px; margin: 40px auto 0; color: #aebbc3; font-size: 0.88rem; line-height: 1.6; text-align: center; }
+    @media (max-width: 900px) { .simple-flow-steps { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 500px) { .simple-flow-steps { grid-template-columns: 1fr 1fr; gap: 10px; } .simple-flow-step h3 { font-size: 0.88rem; } .simple-flow-step p { font-size: 0.78rem; } }
+
     @media (max-width: 900px) {
       .ios-phone-item { flex: 0 0 160px; }
     }
@@ -885,7 +903,9 @@
       <li><a href="#features">Features</a></li>
       <li><a href="#ios-update">iOS</a></li>
       <li><a href="#my-cars">My Cars</a></li>
+      <li><a href="#simple-mode">Simple mode</a></li>
       <li><a href="#android-auto">Android Auto</a></li>
+      <li><a href="#apple-carplay">Apple CarPlay</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="/guides/compare-uk-fuel-prices.html">Fuel price guide</a></li>
     </ul>
@@ -988,7 +1008,7 @@
           UK Government CMA Dataset
         </div>
         <h2>Where Does Fuel Finder UK <span class="gradient-text">Get Its Data?</span></h2>
-        <p class="about-geo">Fuel Finder UK is a free app that compares live petrol and diesel prices at over 6,000 UK stations. It uses the official UK Government CMA dataset — updated every 30 minutes — so you always see real, verified prices from retailers like Tesco, Asda, BP, and Shell. No sign-up needed, available on Android and iOS.</p>
+        <p class="about-geo">Fuel Finder UK is a free app that compares live petrol and diesel prices at over 8,100 participating UK stations. It uses the official UK Government CMA dataset — updated every 30 minutes — so you always see real, verified prices from retailers like Tesco, Asda, BP, and Shell. No sign-up needed, available on Android and iOS.</p>
       </div>
       <div class="spotlight-visual">
         <img class="spotlight-img" src="screenshots/03_uk_coverage.png" alt="UK coverage showing government CMA data" loading="lazy" />
@@ -1090,6 +1110,57 @@
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- ===== SIMPLE MODE FLOW ===== -->
+<section class="simple-flow" id="simple-mode">
+  <div class="orb orb-orange" style="width:420px;height:420px;top:-180px;right:-120px;opacity:.18;"></div>
+  <div class="container">
+    <div class="simple-flow-header animate-in">
+      <span class="section-label">Android · Simple mode</span>
+      <h2>Fuel prices without the <span class="gradient-text">faff</span></h2>
+      <p>Android drivers told us they wanted a faster, simpler way to get started. Choose your fuel, choose a town or postcode, and see the answer — with both a map and a list when you want to compare stations.</p>
+    </div>
+    <div class="simple-flow-steps">
+      <div class="simple-flow-step">
+        <span class="simple-flow-platform">Android · 1</span>
+        <img src="screenshots/android-simple-fuel.png" alt="Android Simple mode fuel selection screen" loading="lazy" />
+        <h3>Pick your fuel</h3>
+        <p>Petrol, diesel, or premium — one tap to start.</p>
+      </div>
+      <div class="simple-flow-step">
+        <span class="simple-flow-platform">Android · 2</span>
+        <img src="screenshots/android-simple-area.png" alt="Android Simple mode area selection screen" loading="lazy" />
+        <h3>Choose an area</h3>
+        <p>Use a town or postcode when you are planning ahead.</p>
+      </div>
+      <div class="simple-flow-step">
+        <span class="simple-flow-platform">Android · 3</span>
+        <img src="screenshots/android-simple-map.png" alt="Android Simple mode map showing Birmingham fuel prices" loading="lazy" />
+        <h3>See prices on the map</h3>
+        <p>Get the local picture at a glance.</p>
+      </div>
+      <div class="simple-flow-step">
+        <span class="simple-flow-platform">Android · 4</span>
+        <img src="screenshots/android-simple-list.png" alt="Android Simple mode list showing Birmingham fuel prices" loading="lazy" />
+        <h3>Or use the list</h3>
+        <p>Compare nearby stations, prices, and distances directly.</p>
+      </div>
+      <div class="simple-flow-step">
+        <span class="simple-flow-platform">iOS · Standard flow</span>
+        <img src="screenshots/ios-simple-result-map.png" alt="iPhone fuel price map view" loading="lazy" />
+        <h3>Map view on iPhone</h3>
+        <p>Scan the price picture visually, then switch when you are ready.</p>
+      </div>
+      <div class="simple-flow-step">
+        <span class="simple-flow-platform">iOS · Standard flow</span>
+        <img src="screenshots/ios-simple-result-list.png" alt="iPhone fuel price list view" loading="lazy" />
+        <h3>List view on iPhone</h3>
+        <p>See station names, prices, and addresses in a clean list.</p>
+      </div>
+    </div>
+    <p class="simple-flow-note">Simple mode responds to Android user feedback. The iOS app works differently, with its own native flow and a quick choice between Map and List views.</p>
   </div>
 </section>
 
@@ -1237,7 +1308,32 @@
         </ul>
       </div>
       <div class="spotlight-visual">
-        <img class="spotlight-img" src="screenshots/08_android_auto_premium.png" alt="Android Auto showing fuel prices on car display" loading="lazy" />
+        <img class="spotlight-img" src="screenshots/android-auto-how-to.png" alt="Fuel Finder UK Android Auto setup and dashboard features" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== APPLE CARPLAY SPOTLIGHT ===== -->
+<section class="spotlight" id="apple-carplay" style="background:var(--bg-secondary);">
+  <div class="orb orb-blue" style="width:360px;height:360px;top:-100px;right:-80px;"></div>
+  <div class="container">
+    <div class="spotlight-grid">
+      <div class="spotlight-content animate-in">
+        <span class="section-label">In Your Car</span>
+        <span class="bento-tag new" style="display:inline-block;margin-bottom:16px;">Apple CarPlay</span>
+        <h2><span class="blue-text">Apple CarPlay</span> — Live fuel prices on your drive</h2>
+        <p>Connect your iPhone to CarPlay and bring Fuel Finder into the dashboard. Browse live nearby stations, compare prices, and start turn-by-turn navigation without reaching for your phone.</p>
+        <ul class="spotlight-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Browse nearby stations from the CarPlay screen</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Compare live prices before choosing where to stop</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Choose a station and start turn-by-turn directions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Designed for safe, glanceable in-car interaction</li>
+        </ul>
+      </div>
+      <div class="spotlight-visual">
+        <img class="spotlight-img" src="screenshots/ios-carplay-phone-list.png" alt="Fuel Finder UK iPhone station list used to choose a CarPlay destination" loading="lazy" />
+        <p style="color:var(--text-muted);font-size:.85rem;text-align:center;margin-top:14px;">Choose the station on iPhone; CarPlay carries the journey onto your dashboard.</p>
       </div>
     </div>
   </div>
@@ -1339,7 +1435,7 @@
         <div class="showcase-item"><img src="screenshots/07_route_planning.png" alt="Route planning" loading="lazy" /></div>
         <div class="showcase-item"><img src="screenshots/02_community_reports.png" alt="Community reports" loading="lazy" /></div>
         <div class="showcase-item"><img src="screenshots/01_hero.png" alt="Customisation and themes" loading="lazy" /></div>
-        <div class="showcase-item"><img src="screenshots/08_android_auto_premium.png" alt="Android Auto" loading="lazy" /></div>
+        <div class="showcase-item"><img src="screenshots/android-auto-how-to.png" alt="Android Auto setup and features" loading="lazy" /></div>
       </div>
     </div>
 
@@ -1553,11 +1649,7 @@
         <a href="/guides/cheapest-fuel-along-route.html">Route fuel guide</a>
         <a href="mailto:iiamdarren@gmail.com">Contact</a>
       </div>
-      <a class="footer-studio" href="https://iamdarren.com" aria-label="Built by DF Labs">
-        <small>Built by</small>
-        <img src="df-labs-logo.png" alt="DF Labs" width="116" height="28" loading="lazy" />
-      </a>
-      <p class="footer-copy">&copy; 2026 Fuel Finder UK. An independent app by DF Labs. Not affiliated with or endorsed by the UK Government or CMA. Fuel price data sourced from the publicly available CMA open dataset.</p>
+      <p class="footer-copy">&copy; 2025 Fuel Finder UK. Not affiliated with or endorsed by the UK Government or CMA. Fuel price data sourced from the publicly available CMA open dataset.</p>
     </div>
   </div>
 </footer>
