@@ -101,10 +101,10 @@
     </a>
 
     <div class="meta">
-        <p><strong>Effective Date:</strong> June 17, 2026</p>
+        <p><strong>Effective Date:</strong> September 8, 2026</p>
         <p><strong>Developer:</strong> DF Labs</p>
         <p><strong>Contact:</strong> <a href="mailto:support@fuelfinderuk.live">support@fuelfinderuk.live</a></p>
-        <p><strong>Version:</strong> 3</p>
+        <p><strong>Version:</strong> 5</p>
     </div>
 
     <h2>Overview</h2>
@@ -125,8 +125,8 @@
     <ul>
         <li><strong>What:</strong> The vehicle registration number you choose to enter, and the details returned for it (make, model, fuel type, MOT history, tax and ULEZ status).</li>
         <li><strong>Why:</strong> To show your vehicle's MOT history, tax and ULEZ status, road tax rate, and to calculate fill costs based on tank size.</li>
-        <li><strong>Where it goes:</strong> When you add or refresh a vehicle, the registration number is sent to the <strong>DVLA Vehicle Enquiry Service</strong> and the <strong>DVSA MOT History service</strong> (both UK government services) to retrieve the vehicle's details. We do not store your registration number or vehicle details on our own servers.</li>
-        <li><strong>Storage:</strong> Returned vehicle details are stored locally on your device and are deleted when you remove the vehicle or uninstall the App.</li>
+        <li><strong>Where it goes:</strong> When you add or refresh a vehicle, the registration number is sent to the <strong>DVLA Vehicle Enquiry Service</strong> and the <strong>DVSA MOT History service</strong> (both UK government services) to retrieve the vehicle's details. If our bundled performance catalogue cannot identify the vehicle, its make, model, year, fuel type, engine size and CO₂ figure may be sent to our Cloudflare backend so we can return or add reviewed performance data. The registration number is never included in that request or stored on our servers.</li>
+        <li><strong>Storage:</strong> Returned vehicle details and downloaded performance data are stored locally on your device. Plate-free missing-vehicle attributes may be retained on our backend to improve the performance catalogue.</li>
     </ul>
 
     <h3>3. Community Reports</h3>
@@ -147,6 +147,7 @@
         <li><strong>What:</strong> If you consent, your device's advertising identifier (IDFA) and ad-interaction data may be used to show personalised ads. If you do not consent, ads are non-personalised.</li>
         <li><strong>How we ask:</strong> We use Apple's App Tracking Transparency prompt and, in the UK/EU, a Google-certified consent (UMP) prompt before any tracking or personalised advertising.</li>
         <li><strong>Provider:</strong> Google AdMob (see Third-Party Services).</li>
+        <li><strong>Rewarded routes:</strong> After the monthly free road-route allowance is used, free users may optionally view a rewarded advertisement to unlock the specific road route they have requested. The route is calculated before the ad is offered, and is displayed only after AdMob confirms completion. Declining or skipping the ad does not prevent use of the free straight-line route. Up to three rewarded road routes may be used per day.</li>
     </ul>
 
     <h3>6. Device &amp; Diagnostic Information</h3>
@@ -200,8 +201,8 @@
         </tr>
         <tr>
             <td>Our backend (Cloudflare Workers)</td>
-            <td>Fuel price data and route calculation</td>
-            <td>IP address; route start/destination coordinates when you plan a route</td>
+            <td>Fuel price data, route calculation and reviewed vehicle performance data</td>
+            <td>IP address; route start/destination coordinates when you plan a route; plate-free vehicle attributes when performance data is unavailable</td>
             <td><a href="https://www.cloudflare.com/privacypolicy/">cloudflare.com/privacypolicy</a></td>
         </tr>
         <tr>
@@ -224,7 +225,7 @@
         </tr>
         <tr>
             <td>Google AdMob</td>
-            <td>Advertising</td>
+            <td>Banner, native and optional rewarded advertising</td>
             <td>Advertising ID, device info, ad interactions</td>
             <td><a href="https://support.google.com/admob/answer/6128543">AdMob policy</a></td>
         </tr>
@@ -241,6 +242,7 @@
         <li><strong>On-device data</strong> (preferences, favourites, saved vehicles and their details) stays on your device and is deleted when you remove it in the App or uninstall.</li>
         <li><strong>Community Reports</strong> you submit are retained in our database and may remain visible to others until they expire or are removed. Because they are not linked to an account, contact us if you need a specific report removed.</li>
         <li><strong>Vehicle registration numbers</strong> are sent to DVLA/DVSA only to perform a lookup and are not stored on our servers.</li>
+        <li><strong>Missing-vehicle attributes</strong> (make, model, year, fuel type, engine size and CO₂) may be retained without a registration number so we can prioritise and publish missing performance data.</li>
     </ul>
 
     <h2>Your Rights and Choices</h2>
@@ -249,7 +251,7 @@
     <p>You can revoke location access at any time via Settings → Privacy &amp; Security → Location Services → Fuel Finder UK. You can still search by entering a location manually if you deny access.</p>
 
     <h3>Tracking &amp; Ad Personalisation</h3>
-    <p>You can change tracking permission via Settings → Privacy &amp; Security → Tracking, and opt out of Apple's personalised ads via Settings → Privacy &amp; Security → Apple Advertising. Purchasing the one-time ad-free upgrade removes all ads.</p>
+    <p>You can change tracking permission via Settings → Privacy &amp; Security → Tracking, use Privacy Choices inside the App when that option is required in your region, and opt out of Apple's personalised ads via Settings → Privacy &amp; Security → Apple Advertising. Purchasing the one-time ad-free upgrade removes all ads, including rewarded ads.</p>
 
     <h3>Data Deletion</h3>
     <ul>
