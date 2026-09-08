@@ -117,8 +117,8 @@
     <ul>
         <li><strong>What:</strong> Approximate and precise location from your device, and any start/destination you enter for route planning.</li>
         <li><strong>Why:</strong> To show fuel stations near you, sort them by distance, and (in Plan Route) calculate a driving route and find the cheapest fuel along it.</li>
-        <li><strong>Where it goes:</strong> Sorting stations by distance happens on your device. When you use <strong>Plan Route</strong>, the start and destination coordinates are sent to our server to calculate the route. Map tiles and ads (see below) may allow third parties to infer your approximate location from your IP address.</li>
-        <li><strong>Storage:</strong> We do not store your location history on our servers or build a profile of your movements.</li>
+        <li><strong>Where it goes:</strong> Sorting stations by distance happens on your device. When you use <strong>Plan Route</strong>, the start and destination coordinates are sent over HTTPS through Cloudflare to our own routing server. Routes are calculated using the open-source Valhalla routing engine and OpenStreetMap road data; your journey is not sent to Google, Apple, an advertising provider, or another third-party routing provider. Map tiles and ads (see below) may allow their providers to infer your approximate location from your IP address.</li>
+        <li><strong>Storage:</strong> A computed route may be cached for up to seven days, keyed only by its rounded start and destination coordinates, so repeat requests can be served more quickly. It is not linked to you, a device identifier, or an account. Your IP address is processed transiently for abuse prevention and rate-limiting and is not stored with the route. We do not create a location history or movement profile.</li>
     </ul>
 
     <h3>2. Vehicle Information (My Cars)</h3>
@@ -133,7 +133,9 @@
     <ul>
         <li><strong>What:</strong> Reports you choose to submit (for example: out-of-fuel, queue times, closed station, suspected price errors), the station the report relates to, the report time, and your votes on other reports.</li>
         <li><strong>Why:</strong> To show real-time station status to other drivers and let the community verify reports.</li>
-        <li><strong>Where it goes:</strong> Reports and votes are sent to and stored in our cloud database, hosted on <strong>Google Firebase / Cloud Firestore</strong>, and are visible to other users of the App. Reports are not linked to a name or account (the App has no accounts). A non-identifying random identifier may be used to prevent duplicate voting.</li>
+        <li><strong>Where it goes:</strong> Reports and votes are sent to and stored in our cloud database, hosted on <strong>Google Firebase / Cloud Firestore</strong>, and are visible to other users of the App. Stored report fields are the station identifier, report type, fuel type (where relevant), queue estimate (where relevant), vote direction, and timestamps. Reports are not linked to a name, account, device identifier, or advertising identifier.</li>
+        <li><strong>Storage:</strong> Each report is set to expire after six hours. Google may process standard connection metadata, such as an IP address, while delivering the Firestore service, but we do not store it in the report.</li>
+        <li><strong>Rate limiting:</strong> Anti-spam limits for Community Reports are maintained locally on your device.</li>
     </ul>
 
     <h3>4. User Preferences</h3>
@@ -144,15 +146,15 @@
 
     <h3>5. Advertising &amp; Identifiers</h3>
     <ul>
-        <li><strong>What:</strong> If you consent, your device's advertising identifier (IDFA) and ad-interaction data may be used to show personalised ads. If you do not consent, ads are non-personalised.</li>
-        <li><strong>How we ask:</strong> We use Apple's App Tracking Transparency prompt and, in the UK/EU, a Google-certified consent (UMP) prompt before any tracking or personalised advertising.</li>
+        <li><strong>What:</strong> Subject to your platform and consent choices, your device's advertising identifier (Apple IDFA or Android Advertising ID), device information, and ad-interaction data may be used to serve, measure, and personalise ads. Where consent is not given or personalised advertising is unavailable, Google may serve limited or non-personalised ads in accordance with your choices and applicable law.</li>
+        <li><strong>How we ask:</strong> On iPhone and iPad we use Apple's App Tracking Transparency prompt before allowing tracking. Where required, including in the UK/EEA, we use Google's certified User Messaging Platform (UMP) to collect and manage advertising consent choices.</li>
         <li><strong>Provider:</strong> Google AdMob (see Third-Party Services).</li>
         <li><strong>Rewarded routes:</strong> After the monthly free road-route allowance is used, free users may optionally view a rewarded advertisement to unlock the specific road route they have requested. The route is calculated before the ad is offered, and is displayed only after AdMob confirms completion. Declining or skipping the ad does not prevent use of the free straight-line route. Up to three rewarded road routes may be used per day.</li>
     </ul>
 
     <h3>6. Device &amp; Diagnostic Information</h3>
     <ul>
-        <li><strong>What:</strong> Basic technical information (such as iOS version and device type) and your IP address, which is necessarily visible to any server the App contacts.</li>
+        <li><strong>What:</strong> Basic technical information (such as iOS or Android version, device type and screen characteristics), diagnostic information made available by the platform or service providers, and your IP address, which is necessarily visible to any server the App contacts.</li>
         <li><strong>Why:</strong> To deliver content, ensure compatibility, and keep the service secure and reliable.</li>
     </ul>
 
@@ -172,6 +174,8 @@
     <h3>We do NOT:</h3>
     <ul>
         <li>❌ Sell your personal information.</li>
+        <li>❌ Share your precise location or journey with advertisers.</li>
+        <li>❌ Send your journey to a third-party routing provider.</li>
         <li>❌ Create a profile of your movements or location history.</li>
         <li>❌ Store your vehicle registration number on our own servers.</li>
         <li>❌ Require an account, name, or email address to use the App.</li>
@@ -189,9 +193,15 @@
         </tr>
         <tr>
             <td>Apple MapKit</td>
-            <td>Displaying the map</td>
+            <td>Displaying maps on iPhone and iPad</td>
             <td>Map interactions, approximate location</td>
             <td><a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a></td>
+        </tr>
+        <tr>
+            <td>Google Maps Platform</td>
+            <td>Displaying maps on Android</td>
+            <td>Map interactions, location and standard connection information when map features are used</td>
+            <td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
         </tr>
         <tr>
             <td>CARTO basemaps</td>
@@ -208,7 +218,7 @@
         <tr>
             <td>Google Firebase / Cloud Firestore</td>
             <td>Storing &amp; sharing Community Reports</td>
-            <td>Report content, station, timestamp, vote identifier</td>
+            <td>Report content, station identifier, vote direction and timestamps; no app-level user or device identifier</td>
             <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
         </tr>
         <tr>
@@ -240,18 +250,22 @@
     <h2>Data Retention</h2>
     <ul>
         <li><strong>On-device data</strong> (preferences, favourites, saved vehicles and their details) stays on your device and is deleted when you remove it in the App or uninstall.</li>
-        <li><strong>Community Reports</strong> you submit are retained in our database and may remain visible to others until they expire or are removed. Because they are not linked to an account, contact us if you need a specific report removed.</li>
+        <li><strong>Community Reports</strong> are set to expire after six hours and may be removed sooner. Because they are not linked to an account, contact us if you need a specific report removed.</li>
+        <li><strong>Computed routes</strong> may be cached for up to seven days using rounded start and destination coordinates. They are not linked to a user, device or account.</li>
         <li><strong>Vehicle registration numbers</strong> are sent to DVLA/DVSA only to perform a lookup and are not stored on our servers.</li>
         <li><strong>Missing-vehicle attributes</strong> (make, model, year, fuel type, engine size and CO₂) may be retained without a registration number so we can prioritise and publish missing performance data.</li>
     </ul>
 
+    <h2>Data Security</h2>
+    <p>We use reasonable technical and organisational safeguards appropriate to the data and services involved. App traffic to our backend, including route requests, is protected in transit using HTTPS. Nearby-station location processing and preferences remain on your device except where this policy explains that a feature requires transmission. No internet transmission or storage system can be guaranteed completely secure.</p>
+
     <h2>Your Rights and Choices</h2>
 
     <h3>Location Permissions</h3>
-    <p>You can revoke location access at any time via Settings → Privacy &amp; Security → Location Services → Fuel Finder UK. You can still search by entering a location manually if you deny access.</p>
+    <p>You can revoke location access at any time. On iPhone or iPad, use Settings → Privacy &amp; Security → Location Services → Fuel Finder UK. On Android, use Settings → Apps → Fuel Finder UK → Permissions → Location (wording may vary by device). You can still search by entering a location manually if you deny access.</p>
 
     <h3>Tracking &amp; Ad Personalisation</h3>
-    <p>You can change tracking permission via Settings → Privacy &amp; Security → Tracking, use Privacy Choices inside the App when that option is required in your region, and opt out of Apple's personalised ads via Settings → Privacy &amp; Security → Apple Advertising. Purchasing the one-time ad-free upgrade removes all ads, including rewarded ads.</p>
+    <p>Use <strong>Privacy Choices</strong> inside the App where that option is available to review advertising consent. On iPhone or iPad, you can also change tracking permission via Settings → Privacy &amp; Security → Tracking and control Apple personalised ads via Settings → Privacy &amp; Security → Apple Advertising. On Android, you can manage or reset the Advertising ID and ad privacy choices in Google settings (the exact path varies by Android version). Purchasing the one-time ad-free upgrade removes all ads, including rewarded ads where offered.</p>
 
     <h3>Data Deletion</h3>
     <ul>
@@ -292,6 +306,6 @@
     <p>This app uses data provided by the UK Government under the Motor Fuel Price (Open Data) Regulations 2025, administered by the Competition and Markets Authority (CMA). Fuel Finder UK is not affiliated with or endorsed by the UK Government or the CMA.</p>
 
     <hr>
-    <p><strong>Last Updated:</strong> June 17, 2026</p>
+    <p><strong>Last Updated:</strong> September 8, 2026</p>
 </body>
 </html>
