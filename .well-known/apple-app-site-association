@@ -1,4 +1,17 @@
 {
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["Y48P3YNW5B.DF-Labs.Fuel-Finder-UK"],
+        "components": [
+          {
+            "/": "/premium*",
+            "comment": "Open Fuel Finder Premium from house ads and the website"
+          }
+        ]
+      }
+    ]
+  },
   "appclips": {
     "apps": ["Y48P3YNW5B.DF-Labs.Fuel-Finder-UK.Clip"]
   }

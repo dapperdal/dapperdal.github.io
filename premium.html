@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0e1a">
+  <meta name="apple-itunes-app" content="app-id=6760751440, app-argument=https://fuelfinderuk.live/premium">
+  <title>Fuel Finder Premium — Drive further, search smarter</title>
+  <meta name="description" content="Open Fuel Finder Premium to remove adverts and unlock route planning plus Android Auto or Apple CarPlay support.">
+  <link rel="canonical" href="https://fuelfinderuk.live/premium">
+  <link rel="icon" href="/store_icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,650;9..144,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f8fafc;
+      --muted: #aab4c4;
+      --night: #090d17;
+      --panel: rgba(20, 27, 43, .78);
+      --line: rgba(255, 255, 255, .11);
+      --orange: #ff7a00;
+      --gold: #ffc247;
+      --blue: #39c6ff;
+    }
+
+    * { box-sizing: border-box; }
+    html { min-height: 100%; background: var(--night); }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      font-family: "Manrope", sans-serif;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(255, 122, 0, .2), transparent 28rem),
+        radial-gradient(circle at 88% 72%, rgba(57, 198, 255, .13), transparent 30rem),
+        linear-gradient(145deg, #090d17 0%, #101827 58%, #090d17 100%);
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .16;
+      background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, #000, transparent 80%);
+    }
+    main { width: min(1080px, calc(100% - 36px)); margin: 0 auto; padding: 34px 0 48px; }
+    nav { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { display: flex; align-items: center; gap: 12px; color: inherit; text-decoration: none; font-weight: 800; }
+    .brand img { width: 44px; height: 44px; border-radius: 12px; box-shadow: 0 10px 30px rgba(255,122,0,.18); }
+    .brand span { line-height: 1.08; }
+    .brand small { display: block; margin-top: 3px; color: var(--muted); font-size: .7rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; }
+    .home { color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 700; }
+    .home:hover { color: #fff; }
+    .hero { min-height: calc(100vh - 132px); display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: clamp(34px, 7vw, 90px); padding: 64px 0 42px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; padding: 7px 12px; border: 1px solid rgba(255,194,71,.22); border-radius: 999px; background: rgba(255,194,71,.09); color: #ffd77f; font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 18px var(--gold); }
+    h1 { max-width: 720px; margin: 22px 0 20px; font-family: "Fraunces", serif; font-size: clamp(3.15rem, 8vw, 6.7rem); line-height: .92; letter-spacing: -.055em; }
+    h1 em { display: block; color: var(--orange); font-style: normal; }
+    .lead { max-width: 620px; margin: 0; color: var(--muted); font-size: clamp(1rem, 2vw, 1.18rem); line-height: 1.75; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .button { display: inline-flex; min-height: 52px; align-items: center; justify-content: center; padding: 14px 21px; border-radius: 14px; color: #fff; text-decoration: none; font-size: .92rem; font-weight: 800; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { background: linear-gradient(135deg, #ff920f, #f45100); box-shadow: 0 16px 42px rgba(255,122,0,.27); }
+    .button.secondary { border: 1px solid var(--line); background: rgba(255,255,255,.055); }
+    .button.secondary:hover { border-color: rgba(255,255,255,.28); }
+    .helper { margin-top: 14px; color: #7f8a9d; font-size: .75rem; line-height: 1.55; }
+    .feature-board { position: relative; padding: 20px; border: 1px solid var(--line); border-radius: 30px; background: linear-gradient(155deg, rgba(255,255,255,.09), rgba(255,255,255,.025)); box-shadow: 0 30px 90px rgba(0,0,0,.38); backdrop-filter: blur(18px); }
+    .feature-board::after { content: ""; position: absolute; inset: 13px; z-index: -1; border-radius: 24px; background: rgba(4,7,13,.42); }
+    .board-head { display: flex; align-items: center; gap: 13px; padding: 4px 4px 20px; border-bottom: 1px solid var(--line); }
+    .board-head img { width: 58px; height: 58px; border-radius: 17px; }
+    .board-head strong { display: block; font-size: 1.08rem; }
+    .board-head span { color: var(--muted); font-size: .8rem; }
+    .features { display: grid; gap: 10px; margin-top: 18px; }
+    .feature { display: grid; grid-template-columns: 42px 1fr; gap: 13px; align-items: center; padding: 15px; border: 1px solid rgba(255,255,255,.07); border-radius: 17px; background: rgba(7,11,19,.46); }
+    .icon { display: grid; width: 42px; height: 42px; place-items: center; border-radius: 13px; background: rgba(255,122,0,.13); color: #ffae58; font-size: 1.1rem; }
+    .feature:nth-child(2) .icon { background: rgba(57,198,255,.12); color: #7cdbff; }
+    .feature:nth-child(3) .icon { background: rgba(255,194,71,.12); color: #ffd477; }
+    .feature strong { display: block; font-size: .91rem; }
+    .feature span { display: block; margin-top: 3px; color: var(--muted); font-size: .76rem; line-height: 1.45; }
+    .platform-note { margin: 15px 4px 0; color: #7f8a9d; font-size: .7rem; text-align: center; }
+    footer { color: #687387; font-size: .72rem; text-align: center; }
+    footer a { color: #98a4b7; }
+    @media (max-width: 780px) {
+      main { width: min(100% - 28px, 620px); padding-top: 20px; }
+      .hero { min-height: auto; grid-template-columns: 1fr; padding-top: 56px; }
+      h1 { font-size: clamp(3.35rem, 18vw, 5rem); }
+      .feature-board { margin-top: 8px; }
+      .home { display: none; }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .copy { animation: rise .65s ease-out both; }
+      .feature-board { animation: rise .65s .1s ease-out both; }
+      @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav>
+      <a class="brand" href="/" aria-label="Fuel Finder UK home">
+        <img src="/store_icon.svg" alt="Fuel Finder UK logo">
+        <span>Fuel Finder UK<small>Live prices</small></span>
+      </a>
+      <a class="home" href="/">Back to the main website</a>
+    </nav>
+
+    <section class="hero">
+      <div class="copy">
+        <span class="eyebrow">Fuel Finder Premium</span>
+        <h1>Less fuss.<em>More road.</em></h1>
+        <p class="lead">Remove adverts, plan fuel stops along your route, and bring Fuel Finder into your car with <span id="platform-copy">Android Auto or Apple CarPlay</span>.</p>
+        <div class="actions">
+          <a class="button primary" href="fuelfinder://premium" id="open-app">Open Premium in the app</a>
+          <a class="button secondary" href="https://play.google.com/store/apps/details?id=com.fuelprices.live" id="store-link">Get Fuel Finder</a>
+        </div>
+        <p class="helper">The purchase and current price are shown securely inside the app through Google Play or Apple’s App Store. Existing Premium users keep their ad-free access.</p>
+      </div>
+
+      <aside class="feature-board" aria-label="Premium features">
+        <div class="board-head">
+          <img src="/store_icon.svg" alt="">
+          <div><strong>Your drive, upgraded</strong><span>One genuine upgrade inside Fuel Finder</span></div>
+        </div>
+        <div class="features">
+          <div class="feature"><div class="icon" aria-hidden="true">✦</div><div><strong>Ad-free browsing</strong><span>Keep the map and station lists focused on the journey.</span></div></div>
+          <div class="feature"><div class="icon" aria-hidden="true">↝</div><div><strong>Route planning</strong><span>Find useful fuel stops along the road ahead.</span></div></div>
+          <div class="feature"><div class="icon" aria-hidden="true">▰</div><div><strong id="car-feature">Android Auto &amp; Apple CarPlay</strong><span>Use supported Fuel Finder features safely from your car display.</span></div></div>
+        </div>
+        <p class="platform-note">Feature availability depends on your device, vehicle and app version.</p>
+      </aside>
+    </section>
+    <footer>Fuel Finder UK · <a href="/privacy">Privacy</a> · <a href="mailto:support@fuelfinderuk.live">Support</a></footer>
+  </main>
+  <script>
+    (function () {
+      var ua = navigator.userAgent || "";
+      var ios = /iPad|iPhone|iPod/.test(ua);
+      var android = /Android/.test(ua);
+      var store = document.getElementById("store-link");
+      var platform = document.getElementById("platform-copy");
+      var car = document.getElementById("car-feature");
+      if (ios) {
+        store.href = "https://apps.apple.com/gb/app/fuel-finder-uk-live-prices/id6760751440";
+        store.textContent = "View on the App Store";
+        platform.textContent = "Apple CarPlay";
+        car.textContent = "Apple CarPlay";
+      } else if (android) {
+        store.textContent = "View on Google Play";
+        platform.textContent = "Android Auto";
+        car.textContent = "Android Auto";
+      }
+    }());
+  </script>
+</body>
+</html>
