@@ -525,6 +525,11 @@
       font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--text-secondary);
       max-width: 520px; margin-bottom: 36px; line-height: 1.7;
     }
+    .hero-disclaimer {
+      font-size: 0.85rem; color: var(--text-muted); max-width: 520px;
+      margin: -20px 0 28px; line-height: 1.5;
+      padding: 10px 14px; border: 1px solid var(--glass-border); border-radius: 12px;
+    }
     .hero-stats {
       display: flex; gap: 32px; margin-top: 40px;
       padding-top: 32px; border-top: 1px solid var(--glass-border);
@@ -540,6 +545,7 @@
     @media (max-width: 900px) {
       .hero-grid { grid-template-columns: 1fr; text-align: center; }
       .hero-sub { margin-left: auto; margin-right: auto; }
+      .hero-disclaimer { margin-left: auto; margin-right: auto; }
       .hero-stats { justify-content: center; }
       .store-badges { justify-content: center; }
       .hero-visual { margin-top: 40px; }
@@ -927,10 +933,11 @@
       <div class="hero-content">
         <div class="hero-badge">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3.5 7.5v9L12 22l8.5-5.5v-9L12 2zm0 2.16l6.5 4.22v7.24L12 19.84l-6.5-4.22V8.38L12 4.16z"/><path d="M12 7a2 2 0 100 4 2 2 0 000-4z"/></svg>
-          Official UK Government CMA Data
+          Uses UK Government CMA open data
         </div>
         <h1>Find the <span class="gradient-text">Cheapest Fuel</span> Near You</h1>
         <p class="hero-sub">Compare live petrol and diesel prices at 8,100+ participating UK stations — and see exactly what a full tank costs your car at each one. Updated every 30 minutes from official CMA data. Completely free, no sign-up needed.</p>
+        <p class="hero-disclaimer">Independent app by DF Labs. Not an official UK Government app, and not affiliated with or endorsed by the UK Government, CMA, DVLA or DVSA.</p>
         <div class="store-badges">
           <a href="https://play.google.com/store/apps/details?id=com.fuelprices.live" aria-label="Get it on Google Play">
             <img src="screenshots/google-play-badge.png" alt="Get it on Google Play" />
@@ -959,7 +966,7 @@
         </div>
       </div>
       <div class="hero-visual">
-        <img class="hero-phone" src="screenshots/06_compare_prices.png" alt="Fuel Finder UK app showing best choice fuel prices" loading="eager" />
+        <img class="hero-phone" src="screenshots/android/01_hero.jpg" alt="Fuel Finder UK app showing the cheapest fuel nearby" loading="eager" />
       </div>
     </div>
   </div>
@@ -973,7 +980,7 @@
         <div class="trust-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <span>Official CMA Data</span>
+        <span>CMA Open Data</span>
       </div>
       <div class="trust-item">
         <div class="trust-icon">
@@ -1011,7 +1018,7 @@
         <p class="about-geo">Fuel Finder UK is a free app that compares live petrol and diesel prices at over 8,100 participating UK stations. It uses the official UK Government CMA dataset — updated every 30 minutes — so you always see real, verified prices from retailers like Tesco, Asda, BP, and Shell. No sign-up needed, available on Android and iOS.</p>
       </div>
       <div class="spotlight-visual">
-        <img class="spotlight-img" src="screenshots/03_uk_coverage.png" alt="UK coverage showing government CMA data" loading="lazy" />
+        <img class="spotlight-img" src="screenshots/android/03_trusted_data.jpg" alt="Fresh prices first, using CMA open data" loading="lazy" />
       </div>
     </div>
   </div>
@@ -1198,7 +1205,7 @@
         </ul>
       </div>
       <div class="spotlight-visual">
-        <img class="spotlight-img" src="screenshots/04_my_cars.png" alt="My Cars feature showing MOT history, tax status, and fill costs" loading="lazy" />
+        <img class="spotlight-img" src="screenshots/android/07_my_cars.jpg" alt="My Cars feature showing MOT history, tax status, and reminders" loading="lazy" />
       </div>
     </div>
   </div>
@@ -1234,7 +1241,7 @@
         </ul>
       </div>
       <div class="spotlight-visual">
-        <img class="spotlight-img" src="screenshots/02_community_reports.png" alt="Community reporting showing live driver reports" loading="lazy" />
+        <img class="spotlight-img" src="screenshots/android/04_community.jpg" alt="Community reporting showing live out-of-fuel reports" loading="lazy" />
       </div>
     </div>
   </div>
@@ -1268,7 +1275,7 @@
         </ul>
       </div>
       <div class="spotlight-visual">
-        <img class="spotlight-img" src="screenshots/07_route_planning.png" alt="Route planning showing cheapest fuel along a journey" loading="lazy" />
+        <img class="spotlight-img" src="screenshots/android/05_route.jpg" alt="Route planning showing cheapest fuel along a journey" loading="lazy" />
       </div>
     </div>
   </div>
@@ -1308,7 +1315,7 @@
         </ul>
       </div>
       <div class="spotlight-visual">
-        <img class="spotlight-img" src="screenshots/android-auto-how-to.png" alt="Fuel Finder UK Android Auto setup and dashboard features" loading="lazy" />
+        <img class="spotlight-img" src="screenshots/android/06_android_auto.jpg" alt="Fuel Finder UK on Android Auto (Premium)" loading="lazy" />
       </div>
     </div>
   </div>
@@ -1403,7 +1410,7 @@
         </ul>
       </div>
       <div style="text-align:center;">
-        <img src="screenshots/01_hero.png" alt="Fuel Finder UK customisation and themes" style="max-width:400px;width:100%;border-radius:var(--radius-lg);filter:drop-shadow(0 20px 50px rgba(0,0,0,0.4));" loading="lazy" />
+        <img src="screenshots/android/08_customise.jpg" alt="Fuel Finder UK customisation, themes and accent colours" style="max-width:400px;width:100%;border-radius:var(--radius-lg);filter:drop-shadow(0 20px 50px rgba(0,0,0,0.4));" loading="lazy" />
       </div>
     </div>
   </div>
@@ -1428,14 +1435,14 @@
     <div class="platform-panel active" id="panel-android">
       <p class="scroll-hint">Drag or swipe to scroll &rarr;</p>
       <div class="showcase-scroll" id="showcaseScroll">
-        <div class="showcase-item"><img src="screenshots/06_compare_prices.png" alt="Best choice fuel prices" loading="lazy" /></div>
-        <div class="showcase-item"><img src="screenshots/05_station_details.png" alt="Full station details and price reporting" loading="lazy" /></div>
-        <div class="showcase-item"><img src="screenshots/03_uk_coverage.png" alt="UK coverage with CMA data" loading="lazy" /></div>
-        <div class="showcase-item"><img src="screenshots/04_my_cars.png" alt="My Cars feature" loading="lazy" /></div>
-        <div class="showcase-item"><img src="screenshots/07_route_planning.png" alt="Route planning" loading="lazy" /></div>
-        <div class="showcase-item"><img src="screenshots/02_community_reports.png" alt="Community reports" loading="lazy" /></div>
-        <div class="showcase-item"><img src="screenshots/01_hero.png" alt="Customisation and themes" loading="lazy" /></div>
-        <div class="showcase-item"><img src="screenshots/android-auto-how-to.png" alt="Android Auto setup and features" loading="lazy" /></div>
+        <div class="showcase-item"><img src="screenshots/android/01_hero.jpg" alt="Cheapest fuel near you" loading="lazy" /></div>
+        <div class="showcase-item"><img src="screenshots/android/04_station_details.jpg" alt="Full station details and price reporting" loading="lazy" /></div>
+        <div class="showcase-item"><img src="screenshots/android/02_map.jpg" alt="Every price on one map" loading="lazy" /></div>
+        <div class="showcase-item"><img src="screenshots/android/07_my_cars.jpg" alt="My Cars feature" loading="lazy" /></div>
+        <div class="showcase-item"><img src="screenshots/android/05_route.jpg" alt="Route planning" loading="lazy" /></div>
+        <div class="showcase-item"><img src="screenshots/android/04_community.jpg" alt="Community reports" loading="lazy" /></div>
+        <div class="showcase-item"><img src="screenshots/android/08_customise.jpg" alt="Customisation and themes" loading="lazy" /></div>
+        <div class="showcase-item"><img src="screenshots/android/06_android_auto.jpg" alt="Android Auto (Premium)" loading="lazy" /></div>
       </div>
     </div>
 
@@ -1650,7 +1657,7 @@
         <a href="/guides/cheapest-fuel-along-route.html">Route fuel guide</a>
         <a href="mailto:iiamdarren@gmail.com">Contact</a>
       </div>
-      <p class="footer-copy">&copy; 2025 Fuel Finder UK. Not affiliated with or endorsed by the UK Government or CMA. Fuel price data sourced from the publicly available CMA open dataset.</p>
+      <p class="footer-copy">&copy; 2026 Fuel Finder UK by DF Labs. An independent app, not an official UK Government app. Not affiliated with or endorsed by the UK Government, CMA, DVLA or DVSA. Fuel price data sourced from the publicly available CMA open dataset.</p>
     </div>
   </div>
 </footer>
